@@ -41,7 +41,7 @@ export default function Home() {
     <div
       className={`
       flex justify-center items-center h-screen
-      bg-white
+      bg-gray-600
     `}
     >
       <Layout titulo="HU 04 - Periodo Letivo - ADM">
