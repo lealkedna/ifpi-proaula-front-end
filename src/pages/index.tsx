@@ -41,7 +41,7 @@ export default function Home() {
     <div
       className={`
       flex justify-center items-center h-screen
-      bg-gradient-to-r from-blue-500 to-purple-600
+      bg-white
     `}
     >
       <Layout titulo="HU 04 - Periodo Letivo - ADM">
