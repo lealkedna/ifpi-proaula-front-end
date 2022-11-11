@@ -43,7 +43,7 @@ export default function Turmas() {
     <div
       className={`
         flex justify-center items-center h-screen
-        bg-gradient-to-r from-blue-500 to-purple-600
+        bg-gray-600
       `}
     >
       <Layout titulo="HU 05 - Turmas - ADM">

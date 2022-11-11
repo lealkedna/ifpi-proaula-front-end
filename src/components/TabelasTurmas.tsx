@@ -29,12 +29,18 @@ export default function TabelaTurmas(props: TabelaTurmasProps) {
       return (
         <tr
           key={tabelaturmas.id}
-          className={`${i % 2 === 0 ? 'bg-purple-200' : 'bg-purple-100'}`}
+          className={`${i % 2 === 0 ? 'bg-purple-300' : 'bg-purple-200'}`}
         >
-          <td className="text-center p-2">{tabelaturmas.nome}</td>
-          <td className="text-center p-2">{tabelaturmas.turno}</td>
-          <td className="text-center p-2">{tabelaturmas.curso}</td>
-          <td className="text-center p-2">{tabelaturmas.periodoletivo}</td>
+          <td className="text-center p-2 text-gray-800">{tabelaturmas.nome}</td>
+          <td className="text-center p-2 text-gray-800">
+            {tabelaturmas.turno}
+          </td>
+          <td className="text-center p-2 text-gray-800">
+            {tabelaturmas.curso}
+          </td>
+          <td className="text-center p-2 text-gray-800">
+            {tabelaturmas.periodoletivo}
+          </td>
           {exibirAcoesTurmas ? renderizarAcoes(tabelaturmas) : false}
         </tr>
       )
@@ -80,8 +86,7 @@ export default function TabelaTurmas(props: TabelaTurmasProps) {
     <table className="w-full rounded-xl overflow-hidden">
       <thead
         className={`
-          bg-gradient-to-r from-purple-400 to-purple-700
-          text-gray-100
+        text-gray-200 bg-purple-700
       `}
       >
         {renderizarCabecalho()}

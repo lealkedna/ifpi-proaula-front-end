@@ -28,11 +28,17 @@ export default function Tabela(props: Tabelaprops) {
         // o zebrado das linhas
         <tr
           key={i}
-          className={`${i % 2 === 0 ? 'bg-purple-200' : 'bg-purple-100'}`}
+          className={`${i % 2 === 0 ? 'bg-purple-300' : 'bg-purple-200'}`}
         >
-          <td className="text-center p-2">{periodoLetivo.descricao}</td>
-          <td className="text-center p-2">{periodoLetivo.dataInicio}</td>
-          <td className="text-center p-2">{periodoLetivo.dataTermino}</td>
+          <td className="text-center p-2 text-gray-800">
+            {periodoLetivo.descricao}
+          </td>
+          <td className="text-center p-2 text-gray-800">
+            {periodoLetivo.dataInicio}
+          </td>
+          <td className="text-center p-2 text-gray-800">
+            {periodoLetivo.dataTermino}
+          </td>
           {exibirAcoes ? renderizarAcoes(periodoLetivo) : false}
         </tr>
       )
@@ -79,8 +85,7 @@ export default function Tabela(props: Tabelaprops) {
     <table className="w-full rounded-lg overflow-hidden ">
       <thead
         className={`
-              text-gray-200
-                bg-gradient-to-r from-purple-500 to-purple-800
+              text-gray-200 bg-purple-700
             `}
       >
         {renderizarCabecalho()}
