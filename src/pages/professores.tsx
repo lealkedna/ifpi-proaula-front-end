@@ -1,5 +1,5 @@
 import React from 'react'
-
+import BotaoAddProfessor from '../components/BotaoAddProfessor'
 import Layout from '../components/Layout'
 import TabelaProfessores from '../components/TabelaProfessores'
 import TodosProfessores from '../core/TodosProfessores'
@@ -50,6 +50,9 @@ export default function Professores() {
           `}
     >
       <Layout titulo="HU ?? - Professores - ADM">
+        <div className="flex justify-end">
+          <BotaoAddProfessor>Adicionar Novo Professor</BotaoAddProfessor>
+        </div>
         <TabelaProfessores
           professores={professores}
           professorSelecionado={professorSelecionado}
