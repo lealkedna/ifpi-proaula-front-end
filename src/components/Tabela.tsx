@@ -54,7 +54,7 @@ export default function Tabela(props: Tabelaprops) {
             className={`
                     justify-center items-center mr-3
                     text-green-700 rounded-full p-2
-                    hover:bg-purple-300
+                    hover:bg-purple-400
                 `}
           >
             {EditIcon}
@@ -69,7 +69,7 @@ export default function Tabela(props: Tabelaprops) {
             className={`
                     justify-center items-center
                     text-red-600 rounded-full p-2
-                    hover:bg-purple-300
+                    hover:bg-purple-400
                 `}
           >
             {DeleteIcon}

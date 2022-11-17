@@ -55,7 +55,7 @@ export default function FormularioTurmas(props: FormularioTurmasProps) {
         valor={periodoletivo}
         valorMudou={setPeriodoLetivo}
       />
-      <div className="mt-3">
+      <div className="flex justify-end mt-3">
         <Botao
           cor="blue"
           className="mr-2"
@@ -69,7 +69,6 @@ export default function FormularioTurmas(props: FormularioTurmasProps) {
         </Botao>
 
         <Botao cor="blue" onClick={props.cancelado}>
-          {' '}
           Cancelar
         </Botao>
       </div>

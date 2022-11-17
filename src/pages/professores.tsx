@@ -1,11 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import BotaoAddProfessor from '../components/BotaoAddProfessor'
+import FormularioProfessores from '../components/FormularioProfessor'
 import Layout from '../components/Layout'
 import TabelaProfessores from '../components/TabelaProfessores'
 import TodosProfessores from '../core/TodosProfessores'
 
 export default function Professores() {
   // esse e a tela dos professoes lembrando que e so colocar o /professores na url
+
+  const [professor, setProfessor] = useState<TodosProfessores>(
+    TodosProfessores.vazio()
+  )
+
+  const [visivel, setVisivel] = useState<'tabelaProfessor' | 'formProfessor'>(
+    'tabelaProfessor'
+  )
 
   const professores = [
     new TodosProfessores(
@@ -42,22 +51,44 @@ export default function Professores() {
     console.log(`o professor ${professor.nome} foi excluido`)
   }
 
+  function salvarProfessor(professor: TodosProfessores) {
+    console.log(professor)
+    setVisivel('tabelaProfessor')
+  }
+
+  function NovoProfessor() {
+    setProfessor(TodosProfessores.vazio())
+    setVisivel('formProfessor')
+  }
+
   return (
     <div
       className={`
-            flex justify-center items-center h-screen
-            bg-gray-600
-          `}
+          flex justify-center items-center h-screen
+         bg-gray-600
+      `}
     >
-      <Layout titulo="HU ?? - Professores - ADM">
-        <div className="flex justify-end">
-          <BotaoAddProfessor>Adicionar Novo Professor</BotaoAddProfessor>
-        </div>
-        <TabelaProfessores
-          professores={professores}
-          professorSelecionado={professorSelecionado}
-          professorExcluido={professorExcluido}
-        />
+      <Layout titulo="HU 06 - Professores - ADM">
+        {visivel === 'tabelaProfessor' ? (
+          <>
+            <div className="flex justify-end">
+              <BotaoAddProfessor onClick={NovoProfessor}>
+                Adicionar Novo Professor
+              </BotaoAddProfessor>
+            </div>
+            <TabelaProfessores
+              professores={professores}
+              professorSelecionado={professorSelecionado}
+              professorExcluido={professorExcluido}
+            />
+          </>
+        ) : (
+          <FormularioProfessores
+            professores={professor}
+            cancelado={() => setVisivel('tabelaProfessor')}
+            professorMudou={salvarProfessor}
+          />
+        )}
       </Layout>
     </div>
   )

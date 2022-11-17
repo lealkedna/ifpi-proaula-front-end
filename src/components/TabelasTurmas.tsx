@@ -56,7 +56,7 @@ export default function TabelaTurmas(props: TabelaTurmasProps) {
             className={`
               justify-center items-center mr-3
               text-green-700 rounded-full p-2
-              hover:bg-purple-300
+              hover:bg-purple-400
           `}
           >
             {EditIcon}
@@ -70,7 +70,7 @@ export default function TabelaTurmas(props: TabelaTurmasProps) {
             className={`
               justify-center items-center mr-3
               text-red-700 rounded-full p-2
-              hover:bg-purple-300
+              hover:bg-purple-400
           `}
           >
             {DeleteIcon}

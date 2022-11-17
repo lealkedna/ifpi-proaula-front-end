@@ -24,9 +24,10 @@ export default function EntradasTurmas(props: EntradasTurmasProps) {
         readOnly={props.somenteLeitura}
         onChange={(e) => props.valorMudou?.(e.target.value)}
         className={`
-                    border border-purple-500 rounded-lg
-                    bg-white focus:outline-none px-2 py-2 
-                `}
+          border border-purple-500 rounded-lg
+          bg-white focus:outline-none px-2 py-2
+          text-black
+        `}
       />
     </div>
   )
