@@ -1,4 +1,4 @@
-import Coordenador from '../core/Coordenador'
+import Coordenador from '../core/TodosCoordenadores'
 import { DeleteIcon, EditIcon } from './Icones'
 
 interface TabelaCoordenadoresProps {
@@ -13,7 +13,6 @@ export default function TabelaCoordenadores(props: TabelaCoordenadoresProps) {
   function renderizarCabecalho() {
     return (
       <tr>
-        <th className="p-3">Id</th>
         <th className="p-3">Eixo</th>
         <th className="p-3">Modalidade</th>
         <th className="p-3">Professor</th>
@@ -30,7 +29,6 @@ export default function TabelaCoordenadores(props: TabelaCoordenadoresProps) {
           key={coordenaor.id}
           className={`${i % 2 === 0 ? 'bg-purple-200' : 'bg-purple-300'}`}
         >
-          <td className="p-3 text-gray-800">{coordenaor.id}</td>
           <td className="p-3 text-gray-800">{coordenaor.eixo}</td>
           <td className="p-3 text-gray-800">{coordenaor.modalidade}</td>
           <td className="p-3 text-gray-800">{coordenaor.professor}</td>
@@ -46,7 +44,7 @@ export default function TabelaCoordenadores(props: TabelaCoordenadoresProps) {
       <td>
         {props.coordenadorSelecionado ? (
           <button
-            className="m-1 p-2 text-green-700 rounded-full hover:bg-purple-50"
+            className="m-1 p-2 text-green-700 rounded-full hover:bg-purple-400"
             onClick={() => {
               props.coordenadorSelecionado?.(coordenador)
             }}
@@ -58,7 +56,7 @@ export default function TabelaCoordenadores(props: TabelaCoordenadoresProps) {
         )}
         {props.coordenadorExcluido ? (
           <button
-            className="m-1 p-2 text-red-500 rounded-full hover:bg-purple-50"
+            className="m-1 p-2 text-red-500 rounded-full hover:bg-purple-400"
             onClick={() => {
               props.coordenadorExcluido?.(coordenador)
             }}

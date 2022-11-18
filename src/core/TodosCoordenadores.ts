@@ -1,12 +1,12 @@
-export default class Coordenador {
-  #id: number
+export default class TodosCoordenadores {
+  #id: string
   #eixo: string
   #modalidade: string
   #professor: string
   #aprovaSolicitacao: string
 
   constructor(
-    id: number,
+    id: string,
     eixo: string,
     modalidade: string,
     professor: string,
@@ -20,7 +20,7 @@ export default class Coordenador {
   }
 
   vazio() {
-    new Coordenador(0, '', '', '', '')
+    new TodosCoordenadores('', '', '', '', '')
   }
 
   get id() {
