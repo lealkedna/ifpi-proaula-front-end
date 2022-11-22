@@ -1,4 +1,5 @@
 import React from 'react'
+import BotaoAddCoordenador from '../components/BotaoAddCoordenador'
 import Layout from '../components/Layout'
 import TabelaCoordenadores from '../components/TabelaCoordenadores'
 import TodosCoordenadores from '../core/TodosCoordenadores'
@@ -38,6 +39,9 @@ export default function Coordenadores() {
             `}
     >
       <Layout titulo="HU 07 - Coordenadores - ADM">
+        <div className="flex justify-end">
+          <BotaoAddCoordenador>Add Novo Coordenador</BotaoAddCoordenador>
+        </div>
         <TabelaCoordenadores
           coordenador={coordenadores}
           coordenadorSelecionado={coordenadorSelecionado}
