@@ -1,4 +1,4 @@
-export default class Turmas {
+export default class TodasTurmas {
   #id: string
   #nome: string
   #turno: string
@@ -20,7 +20,7 @@ export default class Turmas {
   }
 
   static vazio() {
-    return new Turmas('', '', '', '', '')
+    return new TodasTurmas('', '', '', '', '')
   }
 
   get id() {

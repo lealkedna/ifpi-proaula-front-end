@@ -9,6 +9,7 @@ interface BotaoAddCoordenadorProps {
 export default function BotaoAddCoordenador(props: BotaoAddCoordenadorProps) {
   return (
     <button
+      onClick={props.onClick}
       className={`flex bg-gradient-to-r
              from-blue-500 to-blue-700
               text-white px-3 py-1 

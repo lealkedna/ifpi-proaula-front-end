@@ -1,10 +1,12 @@
-import Coordenador from '../core/TodosCoordenadores'
+import React from 'react'
+
+import Todos_Coordenadores from '../core/Todos_Coordenadores'
 import { DeleteIcon, EditIcon } from './Icones'
 
 interface TabelaCoordenadoresProps {
-  coordenador: Coordenador[]
-  coordenadorSelecionado?: (coordenador: Coordenador) => void
-  coordenadorExcluido?: (coordenador: Coordenador) => void
+  coordenador: Todos_Coordenadores[]
+  coordenadorSelecionado?: (coordenador: Todos_Coordenadores) => void
+  coordenadorExcluido?: (coordenador: Todos_Coordenadores) => void
 }
 
 export default function TabelaCoordenadores(props: TabelaCoordenadoresProps) {
@@ -23,23 +25,23 @@ export default function TabelaCoordenadores(props: TabelaCoordenadoresProps) {
   }
 
   function renderizarDados() {
-    return props.coordenador?.map((coordenaor, i) => {
+    return props.coordenador?.map((coordenador, i) => {
       return (
         <tr
-          key={coordenaor.id}
+          key={coordenador.id}
           className={`${i % 2 === 0 ? 'bg-purple-200' : 'bg-purple-300'}`}
         >
-          <td className="p-3 text-gray-800">{coordenaor.eixo}</td>
-          <td className="p-3 text-gray-800">{coordenaor.modalidade}</td>
-          <td className="p-3 text-gray-800">{coordenaor.professor}</td>
-          <td className="p-3 text-gray-800">{coordenaor.aprovaSolicitacao}</td>
-          {exibirAcoes ? renderizarAcoes(coordenaor) : false}
+          <td className="p-3 text-gray-800">{coordenador.eixo}</td>
+          <td className="p-3 text-gray-800">{coordenador.modalidade}</td>
+          <td className="p-3 text-gray-800">{coordenador.professor}</td>
+          <td className="p-3 text-gray-800">{coordenador.aprovaSolicitacao}</td>
+          {exibirAcoes ? renderizarAcoes(coordenador) : false}
         </tr>
       )
     })
   }
 
-  function renderizarAcoes(coordenador: Coordenador) {
+  function renderizarAcoes(coordenador: Todos_Coordenadores) {
     return (
       <td>
         {props.coordenadorSelecionado ? (

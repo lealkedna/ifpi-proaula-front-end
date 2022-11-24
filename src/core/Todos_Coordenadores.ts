@@ -1,4 +1,4 @@
-export default class TodosCoordenadores {
+export default class Todos_Coordenadores {
   #id: string
   #eixo: string
   #modalidade: string
@@ -19,8 +19,8 @@ export default class TodosCoordenadores {
     this.#aprovaSolicitacao = aprovaSolicitacao
   }
 
-  vazio() {
-    new TodosCoordenadores('', '', '', '', '')
+  static vazio() {
+    return new Todos_Coordenadores('', '', '', '', '')
   }
 
   get id() {
