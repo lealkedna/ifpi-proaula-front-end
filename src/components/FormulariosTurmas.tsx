@@ -1,8 +1,8 @@
 import React from 'react'
-
 import { useState } from 'react'
 import TodasTurmas from '../core/TodasTurmas'
-import Botao from './Botao'
+import BotaoCancelar from './BotaoCancelar'
+import BotaoSalvar from './BotaoSalvar'
 import EntradasTurmas from './EntradasTurmas'
 
 interface FormularioTurmasProps {
@@ -55,9 +55,8 @@ export default function FormularioTurmas(props: FormularioTurmasProps) {
         valor={periodoletivo}
         valorMudou={setPeriodoLetivo}
       />
-      <div className="flex justify-end mt-3">
-        <Botao
-          cor="blue"
+      <div className="flex justify-end mt-5">
+        <BotaoSalvar
           className="mr-2"
           onClick={() =>
             props.turmaMudou?.(
@@ -65,12 +64,12 @@ export default function FormularioTurmas(props: FormularioTurmasProps) {
             )
           }
         >
-          {id ? 'Alterar Turma' : 'Salvar Turma'}
-        </Botao>
+          {id ? 'Alterar' : 'Salvar'}
+        </BotaoSalvar>
 
-        <Botao cor="blue" onClick={props.cancelado}>
+        <BotaoCancelar className="ml-2" onClick={props.cancelado}>
           Cancelar
-        </Botao>
+        </BotaoCancelar>
       </div>
     </div>
   )

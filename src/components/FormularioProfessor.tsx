@@ -3,7 +3,8 @@ import React from 'react'
 import { useState } from 'react'
 import TodosProfessores from '../core/TodosProfessores'
 import EntradaProfessor from './EntradaAddProfessor'
-import Botao from './BotaoAddProfessor'
+import BotaoSalvar from './BotaoSalvar'
+import BotaoCancelar from './BotaoCancelar'
 
 interface FormularioProfessoresProps {
   professores: TodosProfessores
@@ -78,8 +79,8 @@ export default function FormularioProfessores(
         className="mb-2"
       />
 
-      <div className="flex justify-end mt-3">
-        <Botao
+      <div className="flex justify-end mt-5">
+        <BotaoSalvar
           className="mr-2"
           onClick={() =>
             props.professorMudou?.(
@@ -95,8 +96,11 @@ export default function FormularioProfessores(
           }
         >
           {id ? 'Alterar' : 'Salvar'}
-        </Botao>
-        <Botao onClick={props.cancelado}>Cancelar</Botao>
+        </BotaoSalvar>
+
+        <BotaoCancelar className="ml-2" onClick={props.cancelado}>
+          Cancelar
+        </BotaoCancelar>
       </div>
     </div>
   )

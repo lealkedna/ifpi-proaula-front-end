@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import BotaoAddProfessor from '../components/BotaoAddProfessor'
+import BotaoAdicionar from '../components/BotaoAdicionar'
 import FormularioProfessores from '../components/FormularioProfessor'
 import Layout from '../components/Layout'
 import TabelaProfessores from '../components/TabelaProfessores'
@@ -56,7 +56,7 @@ export default function Professores() {
     setVisivel('tabelaProfessor')
   }
 
-  function NovoProfessor() {
+  function novoProfessor() {
     setProfessor(TodosProfessores.vazio())
     setVisivel('formProfessor')
   }
@@ -72,9 +72,9 @@ export default function Professores() {
         {visivel === 'tabelaProfessor' ? (
           <>
             <div className="flex justify-end">
-              <BotaoAddProfessor onClick={NovoProfessor}>
+              <BotaoAdicionar className="mb-5" onClick={novoProfessor}>
                 Adicionar Novo Professor
-              </BotaoAddProfessor>
+              </BotaoAdicionar>
             </div>
             <TabelaProfessores
               professores={professores}

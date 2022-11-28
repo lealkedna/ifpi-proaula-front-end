@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Botao from '../components/Botao'
+import BotaoAdicionar from '../components/BotaoAdicionar'
 import Formulario from '../components/Formulario'
 import Layout from '../components/Layout'
 import Tabela from '../components/Tabela'
@@ -48,9 +48,9 @@ export default function Home() {
         {visivel === 'tabela' ? (
           <>
             <div className="flex justify-end">
-              <Botao cor="green" onClick={novoPeriodoLetivo}>
-                Adicionar Periodo Letivo
-              </Botao>
+              <BotaoAdicionar className="mb-5" onClick={novoPeriodoLetivo}>
+                Adicionar Novo Período Letivo
+              </BotaoAdicionar>
             </div>
             <Tabela
               periodoLetivo={PeriodoLetivos}

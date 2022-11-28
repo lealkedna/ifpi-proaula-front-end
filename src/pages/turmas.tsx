@@ -2,9 +2,9 @@ import React from 'react'
 import TodasTurmas from '../core/TodasTurmas'
 import Layout from '../components/Layout'
 import TabelaTurmas from '../components/TabelasTurmas'
-import BotaoAddTurmas from '../components/BotaoAddTurma'
 import FormularioTurmas from '../components/FormulariosTurmas'
 import { useState } from 'react'
+import BotaoAdicionar from '../components/BotaoAdicionar'
 
 export default function Turmas() {
   const [turma, setTurma] = useState<TodasTurmas>(TodasTurmas.vazio())
@@ -34,7 +34,7 @@ export default function Turmas() {
     setVisivel('tabelaTurmas')
   }
 
-  function NovaTurma() {
+  function novaTurma() {
     setTurma(TodasTurmas.vazio())
     setVisivel('formTurmas')
   }
@@ -50,9 +50,9 @@ export default function Turmas() {
         {visivel === 'tabelaTurmas' ? (
           <>
             <div className="flex justify-end">
-              <BotaoAddTurmas onClick={NovaTurma}>
+              <BotaoAdicionar className="mb-5" onClick={novaTurma}>
                 Adicionar Nova Turma
-              </BotaoAddTurmas>
+              </BotaoAdicionar>
             </div>
             <TabelaTurmas
               tabelaTurmas={TurmasLetivo}

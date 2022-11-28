@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Todos_Coordenadores from '../core/Todos_Coordenadores'
-import Botao from './Botao'
+import BotaoCancelar from './BotaoCancelar'
+import BotaoSalvar from './BotaoSalvar'
 import EntradaCoodenador from './EntradaCoordenador'
 
 interface FormularioCoordenadorProps {
@@ -63,8 +64,8 @@ export default function FormularioCoordenador(
         valorMudou={setAprovarSolicitacao}
         className="mb-2"
       />
-      <div className="flex justify-end mt-3">
-        <Botao
+      <div className="flex justify-end mt-5">
+        <BotaoSalvar
           className="mr-2"
           onClick={() =>
             props.coordenadorMudou?.(
@@ -79,9 +80,11 @@ export default function FormularioCoordenador(
           }
         >
           {id ? 'Alterar' : 'Salvar'}
-        </Botao>
+        </BotaoSalvar>
 
-        <Botao onClick={props.cancelado}>Cancelar</Botao>
+        <BotaoCancelar className="ml-2" onClick={props.cancelado}>
+          Cancelar
+        </BotaoCancelar>
       </div>
     </div>
   )

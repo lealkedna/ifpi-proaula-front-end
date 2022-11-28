@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import PeriodoLetivo from '../core/PeriodoLetivo'
-import Botao from './Botao'
+import BotaoCancelar from './BotaoCancelar'
+import BotaoSalvar from './BotaoSalvar'
 import Entrada from './Entrada'
 
 interface FormProps {
@@ -51,9 +52,8 @@ export default function Formulario(props: FormProps) {
         valor={dataTermino}
         valorMudou={setdataTermino}
       />
-      <div className="flex justify-end mt-3">
-        <Botao
-          cor="blue"
+      <div className="flex justify-end mt-5">
+        <BotaoSalvar
           className="mr-2"
           onClick={() =>
             props.periodoLetivoMudou?.(
@@ -62,9 +62,11 @@ export default function Formulario(props: FormProps) {
           }
         >
           {id ? 'Alterar' : 'Salvar'}
-        </Botao>
+        </BotaoSalvar>
 
-        <Botao onClick={props.cancelado}>cancelar</Botao>
+        <BotaoCancelar className="ml-2" onClick={props.cancelado}>
+          Cancelar
+        </BotaoCancelar>
       </div>
     </div>
   )

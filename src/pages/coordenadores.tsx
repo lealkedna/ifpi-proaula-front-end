@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import BotaoAddCoordenador from '../components/BotaoAddCoordenador'
+import BotaoAdicionar from '../components/BotaoAdicionar'
 import FormularioCoordenador from '../components/FormularioCoordenador'
 import Layout from '../components/Layout'
 import TabelaCoordenadores from '../components/TabelaCoordenadores'
@@ -62,9 +62,9 @@ export default function Coordenadores() {
         {visivel === 'tabelaCoordenador' ? (
           <>
             <div className="flex justify-end">
-              <BotaoAddCoordenador onClick={novoCoordenador}>
-                Add Novo Coordenador
-              </BotaoAddCoordenador>
+              <BotaoAdicionar className="mb-5" onClick={novoCoordenador}>
+                Adicionar Novo Coordenador
+              </BotaoAdicionar>
             </div>
             <TabelaCoordenadores
               coordenador={coordenadores}
