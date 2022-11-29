@@ -18,7 +18,7 @@ export default function TabelaCoordenadores(props: TabelaCoordenadoresProps) {
         <th className="p-3">Eixo</th>
         <th className="p-3">Modalidade</th>
         <th className="p-3">Professor</th>
-        <th className="p-3">Aprova Solicitaçãio</th>
+        <th className="p-3">Aprovar Solicitação</th>
         {exibirAcoes ? <th className="p-3">Ações</th> : false}
       </tr>
     )

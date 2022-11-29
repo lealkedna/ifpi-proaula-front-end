@@ -73,7 +73,7 @@ export default function Professores() {
           <>
             <div className="flex justify-end">
               <BotaoAdicionar className="mb-5" onClick={novoProfessor}>
-                Adicionar Novo Professor
+                Novo Professor
               </BotaoAdicionar>
             </div>
             <TabelaProfessores

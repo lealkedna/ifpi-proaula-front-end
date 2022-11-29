@@ -14,8 +14,8 @@ export default function Turmas() {
   )
 
   const TurmasLetivo = [
-    new TodasTurmas('1', 'Mod 1-Lic Quimica', 'Noite', 'LICQUIM', 'Quimica'),
-    new TodasTurmas('2', 'Mod 3-Lic Fisica', 'Noite', 'LICFIS', 'Fisica'),
+    new TodasTurmas('1', 'Mod 1-Lic Química', 'Noite', 'LICQUIM', 'Química'),
+    new TodasTurmas('2', 'Mod 3-Lic Física', 'Noite', 'LICFIS', 'Física'),
     new TodasTurmas('3', 'Mod 5-Tecn ADS', 'Noite', 'TECNADS', 'ADS'),
   ]
 
@@ -51,7 +51,7 @@ export default function Turmas() {
           <>
             <div className="flex justify-end">
               <BotaoAdicionar className="mb-5" onClick={novaTurma}>
-                Adicionar Nova Turma
+                Nova Turma
               </BotaoAdicionar>
             </div>
             <TabelaTurmas

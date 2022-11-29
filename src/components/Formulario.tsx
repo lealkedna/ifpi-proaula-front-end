@@ -37,17 +37,17 @@ export default function Formulario(props: FormProps) {
         false
       )}
 
-      <Entrada texto="Descrisão" valor={descricao} valorMudou={setDescricao} />
+      <Entrada texto="Descrição" valor={descricao} valorMudou={setDescricao} />
 
       <Entrada
-        texto="Data de Inicio"
+        texto="Data de Início"
         tipo="text"
         valor={dataInicio}
         valorMudou={setdataInicio}
       />
 
       <Entrada
-        texto="Data de Termino"
+        texto="Data de Término"
         tipo="text"
         valor={dataTermino}
         valorMudou={setdataTermino}

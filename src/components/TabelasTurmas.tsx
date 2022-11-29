@@ -18,8 +18,8 @@ export default function TabelaTurmas(props: TabelaTurmasProps) {
         <th className="text-center p-2">Nome</th>
         <th className="text-center p-2">Turno</th>
         <th className="text-center p-2">Curso</th>
-        <th className="text-center p-2">Periodo Letivo</th>
-        {exibirAcoesTurmas ? <th className="text-center p-2">ações</th> : false}
+        <th className="text-center p-2">Período Letivo</th>
+        {exibirAcoesTurmas ? <th className="text-center p-2">Ações</th> : false}
       </tr>
     )
   }

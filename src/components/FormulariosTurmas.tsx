@@ -50,7 +50,7 @@ export default function FormularioTurmas(props: FormularioTurmasProps) {
       />
 
       <EntradasTurmas
-        texto="Periodo Letivo"
+        texto="Período Letivo"
         tipo="text"
         valor={periodoletivo}
         valorMudou={setPeriodoLetivo}

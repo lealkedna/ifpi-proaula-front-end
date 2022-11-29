@@ -18,15 +18,15 @@ export default function Coordenadores() {
     new Todos_Coordenadores(
       '1',
       'Base Comum',
-      'Ensino Medio',
+      'Ensino Médio',
       'Jesiel',
       'Aprovar Curso'
     ),
     new Todos_Coordenadores(
       '2',
-      'Gestao',
-      'Ensino Medio',
-      'Joao',
+      'Gestão',
+      'Ensino Médio',
+      'João',
       'Aprovar Curso'
     ),
     new Todos_Coordenadores('3', 'ADS', 'Superior', 'Rafael', 'Aprovar Curso'),
@@ -63,7 +63,7 @@ export default function Coordenadores() {
           <>
             <div className="flex justify-end">
               <BotaoAdicionar className="mb-5" onClick={novoCoordenador}>
-                Adicionar Novo Coordenador
+                Novo Coordenador
               </BotaoAdicionar>
             </div>
             <TabelaCoordenadores

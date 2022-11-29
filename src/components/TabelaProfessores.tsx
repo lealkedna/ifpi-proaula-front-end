@@ -15,7 +15,7 @@ export default function TabelaProfessores(props: TabelaProfessoresProps) {
       <tr>
         <th className="p-3">Nome</th>
         <th className="p-3">Email</th>
-        <th className="p-3">Matricula Siape</th>
+        <th className="p-3">Matrícula Siape</th>
         <th className="p-3">Qualificação</th>
         <th className="p-3">Eixo</th>
         {exibirAcoes ? <th className="p-3">Ações</th> : false}

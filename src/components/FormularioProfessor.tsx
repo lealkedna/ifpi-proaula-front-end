@@ -48,7 +48,7 @@ export default function FormularioProfessores(
       />
 
       <EntradaProfessor
-        texto="Matricula"
+        texto="Matrícula Siape"
         tipo="text"
         valor={matriculaSiape}
         valorMudou={setMatriculaSiape}
@@ -64,7 +64,7 @@ export default function FormularioProfessores(
       />
 
       <EntradaProfessor
-        texto="Qualificacao"
+        texto="Qualificação"
         tipo="text"
         valor={qualificacao}
         valorMudou={setQualificacao}
