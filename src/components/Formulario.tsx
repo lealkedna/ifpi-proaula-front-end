@@ -3,6 +3,7 @@ import PeriodoLetivo from '../core/PeriodoLetivo'
 import BotaoCancelar from './BotaoCancelar'
 import BotaoSalvar from './BotaoSalvar'
 import Entrada from './Entrada'
+import Checkbox from './Checkbox'
 
 interface FormProps {
   periodoLetivo: PeriodoLetivo
@@ -52,6 +53,13 @@ export default function Formulario(props: FormProps) {
         valor={dataTermino}
         valorMudou={setdataTermino}
       />
+
+      <div className="mt-2">
+        <Checkbox>
+          <span>Desativar</span>
+        </Checkbox>
+      </div>
+
       <div className="flex justify-end mt-5">
         <BotaoSalvar
           className="mr-2"
