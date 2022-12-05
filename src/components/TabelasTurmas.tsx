@@ -1,7 +1,7 @@
 import React from 'react'
 import TodasTurmas from '../core/TodasTurmas'
 
-import { DeleteIcon, EditIcon } from './Icones'
+import { IconsNativo, EditIcon } from './Icones'
 
 interface TabelaTurmasProps {
   tabelaTurmas: TodasTurmas[]
@@ -73,7 +73,7 @@ export default function TabelaTurmas(props: TabelaTurmasProps) {
               hover:bg-purple-400
           `}
           >
-            {DeleteIcon}
+            {IconsNativo}
           </button>
         ) : (
           false

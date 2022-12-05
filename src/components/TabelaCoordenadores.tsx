@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Todos_Coordenadores from '../core/Todos_Coordenadores'
-import { DeleteIcon, EditIcon } from './Icones'
+import { IconsNativo, EditIcon } from './Icones'
 
 interface TabelaCoordenadoresProps {
   coordenador: Todos_Coordenadores[]
@@ -63,7 +63,7 @@ export default function TabelaCoordenadores(props: TabelaCoordenadoresProps) {
               props.coordenadorExcluido?.(coordenador)
             }}
           >
-            {DeleteIcon}
+            {IconsNativo}
           </button>
         ) : (
           false

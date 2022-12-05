@@ -1,5 +1,5 @@
 import PeriodoLetivo from '../core/PeriodoLetivo'
-import { EditIcon, DeleteIcon } from './Icones'
+import { EditIcon, IconsNativo } from './Icones'
 
 interface Tabelaprops {
   periodoLetivo: PeriodoLetivo[]
@@ -72,7 +72,7 @@ export default function Tabela(props: Tabelaprops) {
                     hover:bg-purple-400
                 `}
           >
-            {DeleteIcon}
+            {IconsNativo}
           </button>
         ) : (
           false

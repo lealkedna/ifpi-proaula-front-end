@@ -1,5 +1,5 @@
 import TodosProfessores from '../core/TodosProfessores'
-import { DeleteIcon, EditIcon } from './Icones'
+import { IconsNativo, EditIcon } from './Icones'
 
 interface TabelaProfessoresProps {
   professores: TodosProfessores[]
@@ -71,7 +71,7 @@ export default function TabelaProfessores(props: TabelaProfessoresProps) {
                         hover:bg-purple-400 
                     `}
           >
-            {DeleteIcon}
+            {IconsNativo}
           </button>
         ) : (
           false
