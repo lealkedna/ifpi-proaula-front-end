@@ -1,5 +1,7 @@
 import TodosProfessores from '../core/TodosProfessores'
-import { IconsNativo, EditIcon } from './Icones'
+import BotaoEditar from './BotaoEditar'
+import BotaoInativar from './BotaoInativar'
+import { iconeEditar, IconeInativar } from './Icones'
 
 interface TabelaProfessoresProps {
   professores: TodosProfessores[]
@@ -30,15 +32,11 @@ export default function TabelaProfessores(props: TabelaProfessoresProps) {
           key={professor.id}
           className={`${i % 2 === 0 ? 'bg-purple-300' : 'bg-purple-200'}`}
         >
-          <td className="text-center p-3 text-gray-800">{professor.nome}</td>
-          <td className="text-center p-3 text-gray-800">{professor.email}</td>
-          <td className="text-center p-3 text-gray-800">
-            {professor.matriculaSiape}
-          </td>
-          <td className="text-center p-3 text-gray-800">
-            {professor.qualificacao}
-          </td>
-          <td className="text-center p-3 text-gray-800">{professor.eixo}</td>
+          <td className="p-3">{professor.nome}</td>
+          <td className="p-3">{professor.email}</td>
+          <td className="p-3">{professor.matriculaSiape}</td>
+          <td className="p-3">{professor.qualificacao}</td>
+          <td className="p-3">{professor.eixo}</td>
           {exibirAcoes ? renderizarAcoes(professor) : false}
         </tr>
       )
@@ -47,32 +45,18 @@ export default function TabelaProfessores(props: TabelaProfessoresProps) {
 
   function renderizarAcoes(professor: TodosProfessores) {
     return (
-      <td>
+      <td className="p-3">
         {props.professorSelecionado ? (
-          <button
-            onClick={() => props.professorSelecionado?.(professor)}
-            className={`
-                        justify-center items-center mr-1
-                        text-green-700 rounded-full p-2
-                        hover:bg-purple-400 
-                    `}
-          >
-            {EditIcon}
-          </button>
+          <BotaoEditar onClick={() => props.professorSelecionado?.(professor)}>
+            {iconeEditar}
+          </BotaoEditar>
         ) : (
           false
         )}
         {props.professorExcluido ? (
-          <button
-            onClick={() => props.professorExcluido?.(professor)}
-            className={`
-                        justify-center items-center mr-1
-                        text-red-700 rounded-full p-2
-                        hover:bg-purple-400 
-                    `}
-          >
-            {IconsNativo}
-          </button>
+          <BotaoInativar onClick={() => props.professorExcluido?.(professor)}>
+            {IconeInativar}
+          </BotaoInativar>
         ) : (
           false
         )}
@@ -81,7 +65,7 @@ export default function TabelaProfessores(props: TabelaProfessoresProps) {
   }
 
   return (
-    <table className="w-full rounded-xl overflow-hidden">
+    <table className="w-full rounded-xl overflow-hidden text-center">
       <thead
         className={`
                 text-gray-200 bg-purple-700
@@ -89,7 +73,8 @@ export default function TabelaProfessores(props: TabelaProfessoresProps) {
       >
         {renderizarCabecalho()}
       </thead>
-      <tbody>{renderizarDados()}</tbody>
+
+      <tbody className="text-gray-800">{renderizarDados()}</tbody>
     </table>
   )
 }

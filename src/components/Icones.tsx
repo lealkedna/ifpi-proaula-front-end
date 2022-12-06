@@ -1,4 +1,4 @@
-export const EditIcon = (
+export const iconeEditar = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
@@ -15,7 +15,7 @@ export const EditIcon = (
   </svg>
 )
 
-export const IconsNativo = (
+export const IconeInativar = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"

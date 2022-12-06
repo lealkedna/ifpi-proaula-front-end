@@ -1,7 +1,8 @@
 import React from 'react'
-
 import Todos_Coordenadores from '../core/Todos_Coordenadores'
-import { IconsNativo, EditIcon } from './Icones'
+import BotaoEditar from './BotaoEditar'
+import BotaoInativar from './BotaoInativar'
+import { iconeEditar, IconeInativar } from './Icones'
 
 interface TabelaCoordenadoresProps {
   coordenador: Todos_Coordenadores[]
@@ -29,12 +30,12 @@ export default function TabelaCoordenadores(props: TabelaCoordenadoresProps) {
       return (
         <tr
           key={coordenador.id}
-          className={`${i % 2 === 0 ? 'bg-purple-200' : 'bg-purple-300'}`}
+          className={`${i % 2 === 0 ? 'bg-purple-300' : 'bg-purple-200'}`}
         >
-          <td className="p-3 text-gray-800">{coordenador.eixo}</td>
-          <td className="p-3 text-gray-800">{coordenador.modalidade}</td>
-          <td className="p-3 text-gray-800">{coordenador.professor}</td>
-          <td className="p-3 text-gray-800">{coordenador.aprovaSolicitacao}</td>
+          <td className="p-3">{coordenador.eixo}</td>
+          <td className="p-3">{coordenador.modalidade}</td>
+          <td className="p-3">{coordenador.professor}</td>
+          <td className="p-3">{coordenador.aprovaSolicitacao}</td>
           {exibirAcoes ? renderizarAcoes(coordenador) : false}
         </tr>
       )
@@ -43,28 +44,22 @@ export default function TabelaCoordenadores(props: TabelaCoordenadoresProps) {
 
   function renderizarAcoes(coordenador: Todos_Coordenadores) {
     return (
-      <td>
+      <td className="p-3">
         {props.coordenadorSelecionado ? (
-          <button
-            className="m-1 p-2 text-green-700 rounded-full hover:bg-purple-400"
-            onClick={() => {
-              props.coordenadorSelecionado?.(coordenador)
-            }}
+          <BotaoEditar
+            onClick={() => props.coordenadorSelecionado?.(coordenador)}
           >
-            {EditIcon}
-          </button>
+            {iconeEditar}
+          </BotaoEditar>
         ) : (
           false
         )}
         {props.coordenadorExcluido ? (
-          <button
-            className="m-1 p-2 text-red-500 rounded-full hover:bg-purple-400"
-            onClick={() => {
-              props.coordenadorExcluido?.(coordenador)
-            }}
+          <BotaoInativar
+            onClick={() => props.coordenadorExcluido?.(coordenador)}
           >
-            {IconsNativo}
-          </button>
+            {IconeInativar}
+          </BotaoInativar>
         ) : (
           false
         )}
@@ -78,7 +73,7 @@ export default function TabelaCoordenadores(props: TabelaCoordenadoresProps) {
         {renderizarCabecalho()}
       </thead>
 
-      <tbody>{renderizarDados()}</tbody>
+      <tbody className="text-gray-800">{renderizarDados()}</tbody>
     </table>
   )
 }

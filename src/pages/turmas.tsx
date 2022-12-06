@@ -55,7 +55,7 @@ export default function Turmas() {
               </BotaoAdicionar>
             </div>
             <TabelaTurmas
-              tabelaTurmas={TurmasLetivo}
+              turmas={TurmasLetivo}
               turmaSelecionada={turmaSelecionada}
               turmaExcluida={turmaExcluida}
             />
