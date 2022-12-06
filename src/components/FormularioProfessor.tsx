@@ -29,17 +29,6 @@ export default function FormularioProfessores(
 
   return (
     <div>
-      {id ? (
-        <EntradaProfessor
-          somenteLeitura
-          texto="Código"
-          valor={id}
-          className="mb-2"
-        />
-      ) : (
-        false
-      )}
-
       <EntradaProfessor
         texto="Nome"
         valor={nome}

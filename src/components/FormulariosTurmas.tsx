@@ -23,8 +23,6 @@ export default function FormularioTurmas(props: FormularioTurmasProps) {
 
   return (
     <div>
-      {id ? <EntradasTurmas somenteLeitura texto="codigo" valor={id} /> : false}
-
       <EntradasTurmas
         texto="Nome"
         tipo="text"

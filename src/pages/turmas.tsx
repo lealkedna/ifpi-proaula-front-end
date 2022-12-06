@@ -20,7 +20,6 @@ export default function Turmas() {
   ]
 
   function turmaSelecionada(turma: TodasTurmas) {
-    //  o icone de editar
     setVisivel('formTurmas')
     setTurma(turma)
   }

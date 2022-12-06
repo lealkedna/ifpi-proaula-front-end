@@ -5,7 +5,6 @@ import Layout from '../components/Layout'
 import Tabela from '../components/Tabela'
 import PeriodoLetivo from '../core/PeriodoLetivo'
 
-// const Home: NextPage = () => {
 export default function Home() {
   const [periodoLetivo, setperiodoLetivo] = useState<PeriodoLetivo>(
     PeriodoLetivo.vazio()
@@ -19,8 +18,8 @@ export default function Home() {
   ]
 
   function periodoLetivoSelecionado(periodoLetivo: PeriodoLetivo) {
-    setperiodoLetivo(periodoLetivo)
     setVisivel('form')
+    setperiodoLetivo(periodoLetivo)
   }
 
   function periodoLetivoInativado(periodoLetivo: PeriodoLetivo) {
@@ -69,5 +68,3 @@ export default function Home() {
     </div>
   )
 }
-
-// export default Home

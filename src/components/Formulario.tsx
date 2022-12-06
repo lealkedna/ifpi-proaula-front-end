@@ -27,17 +27,6 @@ export default function Formulario(props: FormProps) {
 
   return (
     <div>
-      {id ? (
-        <Entrada
-          somenteLeitura
-          texto="Codigo"
-          valor={id}
-          valorMudou={setDescricao}
-        />
-      ) : (
-        false
-      )}
-
       <Entrada texto="Descrição" valor={descricao} valorMudou={setDescricao} />
 
       <Entrada

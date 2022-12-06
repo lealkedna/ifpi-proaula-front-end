@@ -26,17 +26,6 @@ export default function FormularioCoordenador(
 
   return (
     <div>
-      {id ? (
-        <EntradaCoodenador
-          somenteLeitura
-          texto="id"
-          valor={id}
-          className="mb-2"
-        />
-      ) : (
-        false
-      )}
-
       <EntradaCoodenador
         texto="Eixo"
         valor={eixo}

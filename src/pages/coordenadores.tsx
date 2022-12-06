@@ -33,8 +33,8 @@ export default function Coordenadores() {
   ]
 
   function coordenadorSelecionado(coordenador: Todos_Coordenadores) {
-    setCoordenador(coordenador)
     setVisivel('formCoordenador')
+    setCoordenador(coordenador)
   }
 
   function coordenadorInativado(coordenador: Todos_Coordenadores) {

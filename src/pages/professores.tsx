@@ -6,8 +6,6 @@ import TabelaProfessores from '../components/TabelaProfessores'
 import TodosProfessores from '../core/TodosProfessores'
 
 export default function Professores() {
-  // esse e a tela dos professoes lembrando que e so colocar o /professores na url
-
   const [professor, setProfessor] = useState<TodosProfessores>(
     TodosProfessores.vazio()
   )
@@ -44,7 +42,8 @@ export default function Professores() {
   ]
 
   function professorSelecionado(professor: TodosProfessores) {
-    console.log(professor.nome)
+    setVisivel('formProfessor')
+    setProfessor(professor)
   }
 
   function professorInativado(professor: TodosProfessores) {
