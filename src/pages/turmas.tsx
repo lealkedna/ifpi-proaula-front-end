@@ -25,8 +25,8 @@ export default function Turmas() {
     setTurma(turma)
   }
 
-  function turmaExcluida(turma: TodasTurmas) {
-    console.log(`A turma ${turma.nome} foi excluida`)
+  function turmaInativada(turma: TodasTurmas) {
+    console.log(`A turma ${turma.nome} foi inativada`)
   }
 
   function salvarTurma(turma: TodasTurmas) {
@@ -57,7 +57,7 @@ export default function Turmas() {
             <TabelaTurmas
               turmas={TurmasLetivo}
               turmaSelecionada={turmaSelecionada}
-              turmaExcluida={turmaExcluida}
+              turmaInativada={turmaInativada}
             />
           </>
         ) : (

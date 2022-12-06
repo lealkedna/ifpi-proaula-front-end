@@ -6,12 +6,12 @@ import { iconeEditar, IconeInativar } from './Icones'
 interface Tabelaprops {
   periodoLetivo: PeriodoLetivo[]
   periodoLetivoSelecionado?: (periodoLetivo: PeriodoLetivo) => void
-  periodoLetivoExcluido?: (periodoLetivo: PeriodoLetivo) => void
+  periodoLetivoInativado?: (periodoLetivo: PeriodoLetivo) => void
 }
 
 export default function Tabela(props: Tabelaprops) {
   const exibirAcoes =
-    props.periodoLetivoSelecionado || props.periodoLetivoExcluido
+    props.periodoLetivoSelecionado || props.periodoLetivoInativado
 
   function renderizarCabecalho() {
     return (
@@ -54,9 +54,9 @@ export default function Tabela(props: Tabelaprops) {
           false
         )}
 
-        {props.periodoLetivoExcluido ? (
+        {props.periodoLetivoInativado ? (
           <BotaoDesativar
-            onClick={() => props.periodoLetivoExcluido?.(periodoLetivo)}
+            onClick={() => props.periodoLetivoInativado?.(periodoLetivo)}
           >
             {IconeInativar}
           </BotaoDesativar>

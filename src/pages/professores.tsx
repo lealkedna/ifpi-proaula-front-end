@@ -47,8 +47,8 @@ export default function Professores() {
     console.log(professor.nome)
   }
 
-  function professorExcluido(professor: TodosProfessores) {
-    console.log(`o professor ${professor.nome} foi excluido`)
+  function professorInativado(professor: TodosProfessores) {
+    console.log(`o professor ${professor.nome} foi inativado`)
   }
 
   function salvarProfessor(professor: TodosProfessores) {
@@ -79,7 +79,7 @@ export default function Professores() {
             <TabelaProfessores
               professores={professores}
               professorSelecionado={professorSelecionado}
-              professorExcluido={professorExcluido}
+              professorInativado={professorInativado}
             />
           </>
         ) : (

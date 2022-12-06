@@ -37,8 +37,8 @@ export default function Coordenadores() {
     setVisivel('formCoordenador')
   }
 
-  function coordenadorExcluido(coordenador: Todos_Coordenadores) {
-    console.log(`O coordenador ${coordenador.professor} foi excluido`)
+  function coordenadorInativado(coordenador: Todos_Coordenadores) {
+    console.log(`O coordenador ${coordenador.professor} foi inativado`)
   }
 
   function salvarCoordenador(coordenador: Todos_Coordenadores) {
@@ -69,7 +69,7 @@ export default function Coordenadores() {
             <TabelaCoordenadores
               coordenador={coordenadores}
               coordenadorSelecionado={coordenadorSelecionado}
-              coordenadorExcluido={coordenadorExcluido}
+              coordenadorInativado={coordenadorInativado}
             />
           </>
         ) : (

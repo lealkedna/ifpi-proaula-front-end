@@ -7,11 +7,11 @@ import { iconeEditar, IconeInativar } from './Icones'
 interface TabelaTurmasProps {
   turmas: TodasTurmas[]
   turmaSelecionada?: (turma: TodasTurmas) => void
-  turmaExcluida?: (turma: TodasTurmas) => void
+  turmaInativada?: (turma: TodasTurmas) => void
 }
 
 export default function TabelaTurmas(props: TabelaTurmasProps) {
-  const exibirAcoes = props.turmaSelecionada || props.turmaExcluida
+  const exibirAcoes = props.turmaSelecionada || props.turmaInativada
 
   function renderizarCabecalho() {
     return (
@@ -52,8 +52,8 @@ export default function TabelaTurmas(props: TabelaTurmasProps) {
         ) : (
           false
         )}
-        {props.turmaExcluida ? (
-          <BotaoInativar onClick={() => props.turmaExcluida?.(turma)}>
+        {props.turmaInativada ? (
+          <BotaoInativar onClick={() => props.turmaInativada?.(turma)}>
             {IconeInativar}
           </BotaoInativar>
         ) : (

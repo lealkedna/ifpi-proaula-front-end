@@ -6,11 +6,11 @@ import { iconeEditar, IconeInativar } from './Icones'
 interface TabelaProfessoresProps {
   professores: TodosProfessores[]
   professorSelecionado?: (professor: TodosProfessores) => void
-  professorExcluido?: (professor: TodosProfessores) => void
+  professorInativado?: (professor: TodosProfessores) => void
 }
 
 export default function TabelaProfessores(props: TabelaProfessoresProps) {
-  const exibirAcoes = props.professorSelecionado || props.professorExcluido
+  const exibirAcoes = props.professorSelecionado || props.professorInativado
 
   function renderizarCabecalho() {
     return (
@@ -53,8 +53,8 @@ export default function TabelaProfessores(props: TabelaProfessoresProps) {
         ) : (
           false
         )}
-        {props.professorExcluido ? (
-          <BotaoInativar onClick={() => props.professorExcluido?.(professor)}>
+        {props.professorInativado ? (
+          <BotaoInativar onClick={() => props.professorInativado?.(professor)}>
             {IconeInativar}
           </BotaoInativar>
         ) : (

@@ -23,8 +23,8 @@ export default function Home() {
     setVisivel('form')
   }
 
-  function periodoLetivoExcluido(periodoLetivo: PeriodoLetivo) {
-    console.log(`periodo Letivo de ${periodoLetivo.descricao} foi excluido`)
+  function periodoLetivoInativado(periodoLetivo: PeriodoLetivo) {
+    console.log(`periodo Letivo de ${periodoLetivo.descricao} foi inativado`)
   }
 
   function novoPeriodoLetivo() {
@@ -55,7 +55,7 @@ export default function Home() {
             <Tabela
               periodoLetivo={PeriodoLetivos}
               periodoLetivoSelecionado={periodoLetivoSelecionado}
-              periodoLetivoExcluido={periodoLetivoExcluido}
+              periodoLetivoInativado={periodoLetivoInativado}
             />
           </>
         ) : (

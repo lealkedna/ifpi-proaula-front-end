@@ -7,11 +7,11 @@ import { iconeEditar, IconeInativar } from './Icones'
 interface TabelaCoordenadoresProps {
   coordenador: Todos_Coordenadores[]
   coordenadorSelecionado?: (coordenador: Todos_Coordenadores) => void
-  coordenadorExcluido?: (coordenador: Todos_Coordenadores) => void
+  coordenadorInativado?: (coordenador: Todos_Coordenadores) => void
 }
 
 export default function TabelaCoordenadores(props: TabelaCoordenadoresProps) {
-  const exibirAcoes = props.coordenadorSelecionado || props.coordenadorExcluido
+  const exibirAcoes = props.coordenadorSelecionado || props.coordenadorInativado
 
   function renderizarCabecalho() {
     return (
@@ -54,9 +54,9 @@ export default function TabelaCoordenadores(props: TabelaCoordenadoresProps) {
         ) : (
           false
         )}
-        {props.coordenadorExcluido ? (
+        {props.coordenadorInativado ? (
           <BotaoInativar
-            onClick={() => props.coordenadorExcluido?.(coordenador)}
+            onClick={() => props.coordenadorInativado?.(coordenador)}
           >
             {IconeInativar}
           </BotaoInativar>
