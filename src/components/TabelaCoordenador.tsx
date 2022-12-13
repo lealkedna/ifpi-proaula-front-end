@@ -1,16 +1,16 @@
 import React from 'react'
-import Todos_Coordenadores from '../core/Todos_Coordenadores'
+import Coordenador from '../core/Coordenador'
 import BotaoEditar from './BotaoEditar'
 import BotaoInativar from './BotaoInativar'
 import { iconeEditar, IconeInativar } from './Icones'
 
-interface TabelaCoordenadoresProps {
-  coordenador: Todos_Coordenadores[]
-  coordenadorSelecionado?: (coordenador: Todos_Coordenadores) => void
-  coordenadorInativado?: (coordenador: Todos_Coordenadores) => void
+interface TabelaCoordenadorProps {
+  coordenador: Coordenador[]
+  coordenadorSelecionado?: (coordenador: Coordenador) => void
+  coordenadorInativado?: (coordenador: Coordenador) => void
 }
 
-export default function TabelaCoordenadores(props: TabelaCoordenadoresProps) {
+export default function TabelaCoordenador(props: TabelaCoordenadorProps) {
   const exibirAcoes = props.coordenadorSelecionado || props.coordenadorInativado
 
   function renderizarCabecalho() {
@@ -19,7 +19,7 @@ export default function TabelaCoordenadores(props: TabelaCoordenadoresProps) {
         <th className="p-3">Eixo</th>
         <th className="p-3">Modalidade</th>
         <th className="p-3">Professor</th>
-        <th className="p-3">Aprovar Solicitação</th>
+        <th className="p-3">Aprova Solicitação</th>
         {exibirAcoes ? <th className="p-3">Ações</th> : false}
       </tr>
     )
@@ -34,7 +34,7 @@ export default function TabelaCoordenadores(props: TabelaCoordenadoresProps) {
         >
           <td className="p-3">{coordenador.eixo}</td>
           <td className="p-3">{coordenador.modalidade}</td>
-          <td className="p-3">{coordenador.professor}</td>
+          <td className="p-3">{coordenador.professor.nome}</td>
           <td className="p-3">{coordenador.aprovaSolicitacao}</td>
           {exibirAcoes ? renderizarAcoes(coordenador) : false}
         </tr>
@@ -42,7 +42,7 @@ export default function TabelaCoordenadores(props: TabelaCoordenadoresProps) {
     })
   }
 
-  function renderizarAcoes(coordenador: Todos_Coordenadores) {
+  function renderizarAcoes(coordenador: Coordenador) {
     return (
       <td className="p-3">
         {props.coordenadorSelecionado ? (
@@ -69,7 +69,11 @@ export default function TabelaCoordenadores(props: TabelaCoordenadoresProps) {
 
   return (
     <table className="w-full rounded-xl overflow-hidden text-center">
-      <thead className="bg-purple-700 text-gray-200">
+      <thead
+        className={`
+                text-gray-200 bg-purple-700
+            `}
+      >
         {renderizarCabecalho()}
       </thead>
 

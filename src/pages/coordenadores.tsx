@@ -1,54 +1,47 @@
 import React, { useState } from 'react'
-import BotaoAdicionar from '../components/BotaoAdicionar'
-import FormularioCoordenador from '../components/FormularioCoordenador'
+import Professor from '../core/Professor'
+import Coordenador from '../core/Coordenador'
 import Layout from '../components/Layout'
-import TabelaCoordenadores from '../components/TabelaCoordenadores'
-import Todos_Coordenadores from '../core/Todos_Coordenadores'
+import BotaoAdicionar from '../components/BotaoAdicionar'
+import TabelaCoordenador from '../components/TabelaCoordenador'
+import FormularioCoordenador from '../components/FormularioCoordenador'
 
 export default function Coordenadores() {
-  const [visivel, setVisivel] = useState<
-    'tabelaCoordenador' | 'formCoordenador'
-  >('tabelaCoordenador')
+  const [visivel, setVisivel] = useState<'tabelaCoordenador' | 'formCoordenador'>('tabelaCoordenador')
 
-  const [coordenador, setCoordenador] = useState<Todos_Coordenadores>(
-    Todos_Coordenadores.vazio()
+  const [coordenador, setCoordenador] = useState<Coordenador>(
+    Coordenador.vazio()
   )
 
-  const coordenadores = [
-    new Todos_Coordenadores(
-      '1',
-      'Base Comum',
-      'Ensino Médio',
-      'Jesiel',
-      'Aprovar Curso'
-    ),
-    new Todos_Coordenadores(
-      '2',
-      'Gestão',
-      'Ensino Médio',
-      'João',
-      'Aprovar Curso'
-    ),
-    new Todos_Coordenadores('3', 'ADS', 'Superior', 'Rafael', 'Aprovar Curso'),
+  const professores = [
+    new Professor('12345ER', 'Jesiel', 'Jesiel@ifpi.edu.br', 'Professor', 'ADS'),
+    new Professor( '12345UY', 'Aislan', 'Aislan@ifpi.edu.br', 'Professor', 'ADS'),
+    new Professor('12345OP', 'Jader','Jader@ifpi.edu.br', 'Professor', 'ADS'),
   ]
 
-  function coordenadorSelecionado(coordenador: Todos_Coordenadores) {
+  const coordenadores = [
+    new Coordenador(1, 'Base Comum', 'Ensino Médio', professores[0], 'Aprovar Curso'),
+    new Coordenador(2, 'Gestão', 'Ensino Médio', professores[1], 'Aprovar Curso'),
+    new Coordenador(3, 'ADS', 'Superior', professores[2], 'Aprovar Curso'),
+  ]
+
+  function coordenadorSelecionado(coordenador: Coordenador) {
     setVisivel('formCoordenador')
     setCoordenador(coordenador)
   }
 
-  function coordenadorInativado(coordenador: Todos_Coordenadores) {
-    console.log(`O coordenador ${coordenador.professor} foi inativado`)
+  function coordenadorInativado(coordenador: Coordenador) {
+    console.log(`O coordenador ${coordenador.professor.nome} foi inativado`)
+  }
+  
+  function novoCoordenador() {
+    setCoordenador(Coordenador.vazio())
+    setVisivel('formCoordenador')
   }
 
-  function salvarCoordenador(coordenador: Todos_Coordenadores) {
+  function salvarCoordenador(coordenador: Coordenador) {
     console.log(coordenador)
     setVisivel('tabelaCoordenador')
-  }
-
-  function novoCoordenador() {
-    setCoordenador(Todos_Coordenadores.vazio())
-    setVisivel('formCoordenador')
   }
 
   return (
@@ -66,7 +59,7 @@ export default function Coordenadores() {
                 Novo Coordenador
               </BotaoAdicionar>
             </div>
-            <TabelaCoordenadores
+            <TabelaCoordenador
               coordenador={coordenadores}
               coordenadorSelecionado={coordenadorSelecionado}
               coordenadorInativado={coordenadorInativado}

@@ -1,22 +1,22 @@
 import React from 'react'
-import TodasTurmas from '../core/TodasTurmas'
+import Turma from '../core/Turma'
 import BotaoEditar from './BotaoEditar'
 import BotaoInativar from './BotaoInativar'
 import { iconeEditar, IconeInativar } from './Icones'
 
-interface TabelaTurmasProps {
-  turmas: TodasTurmas[]
-  turmaSelecionada?: (turma: TodasTurmas) => void
-  turmaInativada?: (turma: TodasTurmas) => void
+interface TabelaTurmaProps {
+  turmas: Turma[]
+  turmaSelecionada?: (turma: Turma) => void
+  turmaInativada?: (turma: Turma) => void
 }
 
-export default function TabelaTurmas(props: TabelaTurmasProps) {
+export default function TabelaTurma(props: TabelaTurmaProps) {
   const exibirAcoes = props.turmaSelecionada || props.turmaInativada
 
   function renderizarCabecalho() {
     return (
       <tr>
-        <th className="p-3">Nome</th>
+        <th className="p-3">Descrição</th>
         <th className="p-3">Turno</th>
         <th className="p-3">Curso</th>
         <th className="p-3">Período Letivo</th>
@@ -32,17 +32,17 @@ export default function TabelaTurmas(props: TabelaTurmasProps) {
           key={turma.id}
           className={`${i % 2 === 0 ? 'bg-purple-300' : 'bg-purple-200'}`}
         >
-          <td className="p-3">{turma.nome}</td>
+          <td className="p-3">{turma.descricao}</td>
           <td className="p-3">{turma.turno}</td>
           <td className="p-3">{turma.curso}</td>
-          <td className="p-3">{turma.periodoletivo}</td>
+          <td className="p-3">{turma.periodoLetivo.descricao}</td>
           {exibirAcoes ? renderizarAcoes(turma) : false}
         </tr>
       )
     })
   }
 
-  function renderizarAcoes(turma: TodasTurmas) {
+  function renderizarAcoes(turma: Turma) {
     return (
       <td className="p-3">
         {props.turmaSelecionada ? (

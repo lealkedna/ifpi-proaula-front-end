@@ -1,63 +1,38 @@
 import React, { useState } from 'react'
-import BotaoAdicionar from '../components/BotaoAdicionar'
-import FormularioProfessores from '../components/FormularioProfessor'
+import Professor from '../core/Professor'
 import Layout from '../components/Layout'
-import TabelaProfessores from '../components/TabelaProfessores'
-import TodosProfessores from '../core/TodosProfessores'
+import BotaoAdicionar from '../components/BotaoAdicionar'
+import TabelaProfessor from '../components/TabelaProfessor'
+import FormularioProfessor from '../components/FormularioProfessor'
 
 export default function Professores() {
-  const [professor, setProfessor] = useState<TodosProfessores>(
-    TodosProfessores.vazio()
-  )
-
-  const [visivel, setVisivel] = useState<'tabelaProfessor' | 'formProfessor'>(
-    'tabelaProfessor'
-  )
+  const [visivel, setVisivel] = useState<'tabelaProfessor' | 'formProfessor'>('tabelaProfessor')
+  
+  const [professor, setProfessor] = useState<Professor>(Professor.vazio())
 
   const professores = [
-    new TodosProfessores(
-      '1',
-      'Jesiel',
-      'Jesiel@ifpi.com.br',
-      '12345ER',
-      'Professor',
-      'ADS'
-    ),
-    new TodosProfessores(
-      '2',
-      'Aislan',
-      'Aislan@ifpi.com.br',
-      '12345UY',
-      'Professor',
-      'ADS'
-    ),
-    new TodosProfessores(
-      '3',
-      'Jader',
-      'Jader@ifpi.com.br',
-      '12345OP',
-      'Professor',
-      'ADS'
-    ),
+    new Professor('12345ER', 'Jesiel', 'Jesiel@ifpi.edu.br', 'Professor', 'ADS'),
+    new Professor('12345UY', 'Aislan', 'Aislan@ifpi.edu.br', 'Professor', 'ADS'),
+    new Professor('12345OP', 'Jader', 'Jader@ifpi.edu.br', 'Professor', 'ADS'),
   ]
 
-  function professorSelecionado(professor: TodosProfessores) {
+  function professorSelecionado(professor: Professor) {
     setVisivel('formProfessor')
     setProfessor(professor)
   }
 
-  function professorInativado(professor: TodosProfessores) {
-    console.log(`o professor ${professor.nome} foi inativado`)
-  }
-
-  function salvarProfessor(professor: TodosProfessores) {
-    console.log(professor)
-    setVisivel('tabelaProfessor')
+  function professorInativado(professor: Professor) {
+    console.log(`O professor ${professor.nome} foi inativado`)
   }
 
   function novoProfessor() {
-    setProfessor(TodosProfessores.vazio())
+    setProfessor(Professor.vazio())
     setVisivel('formProfessor')
+  }
+
+  function salvarProfessor(professor: Professor) {
+    console.log(professor)
+    setVisivel('tabelaProfessor')
   }
 
   return (
@@ -75,15 +50,15 @@ export default function Professores() {
                 Novo Professor
               </BotaoAdicionar>
             </div>
-            <TabelaProfessores
+            <TabelaProfessor
               professores={professores}
               professorSelecionado={professorSelecionado}
               professorInativado={professorInativado}
             />
           </>
         ) : (
-          <FormularioProfessores
-            professores={professor}
+          <FormularioProfessor
+            professor={professor}
             cancelado={() => setVisivel('tabelaProfessor')}
             professorMudou={salvarProfessor}
           />

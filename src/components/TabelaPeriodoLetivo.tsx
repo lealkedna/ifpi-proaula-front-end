@@ -1,15 +1,15 @@
 import PeriodoLetivo from '../core/PeriodoLetivo'
-import BotaoDesativar from './BotaoInativar'
 import BotaoEditar from './BotaoEditar'
+import BotaoInativar from './BotaoInativar'
 import { iconeEditar, IconeInativar } from './Icones'
 
-interface Tabelaprops {
+interface TabelaPeriodoLetivoProps {
   periodoLetivo: PeriodoLetivo[]
   periodoLetivoSelecionado?: (periodoLetivo: PeriodoLetivo) => void
   periodoLetivoInativado?: (periodoLetivo: PeriodoLetivo) => void
 }
 
-export default function Tabela(props: Tabelaprops) {
+export default function TabelaPeriodoLetivo(props: TabelaPeriodoLetivoProps) {
   const exibirAcoes =
     props.periodoLetivoSelecionado || props.periodoLetivoInativado
 
@@ -27,7 +27,6 @@ export default function Tabela(props: Tabelaprops) {
   function renderizarDados() {
     return props.periodoLetivo?.map((periodoLetivo, i) => {
       return (
-        // o zebrado das linhas
         <tr
           key={i}
           className={`${i % 2 === 0 ? 'bg-purple-300' : 'bg-purple-200'}`}
@@ -55,11 +54,11 @@ export default function Tabela(props: Tabelaprops) {
         )}
 
         {props.periodoLetivoInativado ? (
-          <BotaoDesativar
+          <BotaoInativar
             onClick={() => props.periodoLetivoInativado?.(periodoLetivo)}
           >
             {IconeInativar}
-          </BotaoDesativar>
+          </BotaoInativar>
         ) : (
           false
         )}

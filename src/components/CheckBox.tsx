@@ -4,7 +4,7 @@ interface CheckboxProps {
   children: React.ReactNode
 }
 
-export default function Checkbox(props: CheckboxProps) {
+export default function CheckBox(props: CheckboxProps) {
   const [checked, setChecked] = useState(false)
 
   const handleChange = () => {

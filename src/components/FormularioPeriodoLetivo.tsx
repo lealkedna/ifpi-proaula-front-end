@@ -1,52 +1,51 @@
 import { useState } from 'react'
 import PeriodoLetivo from '../core/PeriodoLetivo'
-import BotaoCancelar from './BotaoCancelar'
+import Entrada from './EntradaPeriodoLetivo'
 import BotaoSalvar from './BotaoSalvar'
-import Entrada from './Entrada'
-import Checkbox from './Checkbox'
+import BotaoCancelar from './BotaoCancelar'
+import CheckBox from './CheckBox'
 
-interface FormProps {
+interface FormularioPeriodoLetivoProps {
   periodoLetivo: PeriodoLetivo
   periodoLetivoMudou?: (periodoLetivo: PeriodoLetivo) => void
   cancelado?: () => void
 }
 
-export default function Formulario(props: FormProps) {
-  //id se n der certo vou alterar novamente
+export default function FormularioPeriodoLetivo(props: FormularioPeriodoLetivoProps) {
   const id = props.periodoLetivo?.id
 
-  const [descricao, setDescricao] = useState(
-    props.periodoLetivo?.descricao ?? ''
-  )
-  const [dataInicio, setdataInicio] = useState(
-    props.periodoLetivo?.dataInicio ?? ''
-  )
-  const [dataTermino, setdataTermino] = useState(
-    props.periodoLetivo?.dataTermino ?? ''
-  )
+  const [descricao, setDescricao] = useState(props.periodoLetivo?.descricao ?? '')
+
+  const [dataInicio, setdataInicio] = useState(props.periodoLetivo?.dataInicio ?? '')
+  
+  const [dataTermino, setdataTermino] = useState(props.periodoLetivo?.dataTermino ?? '')
 
   return (
     <div>
-      <Entrada texto="Descrição" valor={descricao} valorMudou={setDescricao} />
+      <Entrada
+        texto="Descrição"
+        tipo="text"
+        valor={descricao}
+        valorMudou={setDescricao} />
 
       <Entrada
         texto="Data de Início"
-        tipo="text"
+        tipo="date"
         valor={dataInicio}
         valorMudou={setdataInicio}
       />
 
       <Entrada
         texto="Data de Término"
-        tipo="text"
+        tipo="date"
         valor={dataTermino}
         valorMudou={setdataTermino}
       />
 
       <div className="mt-2">
-        <Checkbox>
+        <CheckBox>
           <span>Desativar</span>
-        </Checkbox>
+        </CheckBox>
       </div>
 
       <div className="flex justify-end mt-5">

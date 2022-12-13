@@ -1,17 +1,13 @@
-export default class Todos_Coordenadores {
-  #id: string
+import Professor from "./Professor"
+
+export default class Coordenador {
+  #id: number
   #eixo: string
   #modalidade: string
-  #professor: string
+  #professor: Professor
   #aprovaSolicitacao: string
 
-  constructor(
-    id: string,
-    eixo: string,
-    modalidade: string,
-    professor: string,
-    aprovaSolicitacao: string
-  ) {
+  constructor(id: number, eixo: string, modalidade: string, professor: Professor, aprovaSolicitacao: string) {
     this.#id = id
     this.#eixo = eixo
     this.#modalidade = modalidade
@@ -20,7 +16,7 @@ export default class Todos_Coordenadores {
   }
 
   static vazio() {
-    return new Todos_Coordenadores('', '', '', '', '')
+    return new Coordenador(0, '', '', new Professor('', '', '', '', ''), '')
   }
 
   get id() {

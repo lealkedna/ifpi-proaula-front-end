@@ -1,23 +1,23 @@
-import TodosProfessores from '../core/TodosProfessores'
+import Professor from '../core/Professor'
 import BotaoEditar from './BotaoEditar'
 import BotaoInativar from './BotaoInativar'
 import { iconeEditar, IconeInativar } from './Icones'
 
-interface TabelaProfessoresProps {
-  professores: TodosProfessores[]
-  professorSelecionado?: (professor: TodosProfessores) => void
-  professorInativado?: (professor: TodosProfessores) => void
+interface TabelaProfessorProps {
+  professores: Professor[]
+  professorSelecionado?: (professor: Professor) => void
+  professorInativado?: (professor: Professor) => void
 }
 
-export default function TabelaProfessores(props: TabelaProfessoresProps) {
+export default function TabelaProfessor(props: TabelaProfessorProps) {
   const exibirAcoes = props.professorSelecionado || props.professorInativado
 
   function renderizarCabecalho() {
     return (
       <tr>
+        <th className="p-3">Matrícula</th>
         <th className="p-3">Nome</th>
         <th className="p-3">Email</th>
-        <th className="p-3">Matrícula Siape</th>
         <th className="p-3">Qualificação</th>
         <th className="p-3">Eixo</th>
         {exibirAcoes ? <th className="p-3">Ações</th> : false}
@@ -29,12 +29,12 @@ export default function TabelaProfessores(props: TabelaProfessoresProps) {
     return props.professores?.map((professor, i) => {
       return (
         <tr
-          key={professor.id}
+          key={professor.matricula}
           className={`${i % 2 === 0 ? 'bg-purple-300' : 'bg-purple-200'}`}
         >
+          <td className="p-3">{professor.matricula}</td>
           <td className="p-3">{professor.nome}</td>
           <td className="p-3">{professor.email}</td>
-          <td className="p-3">{professor.matriculaSiape}</td>
           <td className="p-3">{professor.qualificacao}</td>
           <td className="p-3">{professor.eixo}</td>
           {exibirAcoes ? renderizarAcoes(professor) : false}
@@ -43,7 +43,7 @@ export default function TabelaProfessores(props: TabelaProfessoresProps) {
     })
   }
 
-  function renderizarAcoes(professor: TodosProfessores) {
+  function renderizarAcoes(professor: Professor) {
     return (
       <td className="p-3">
         {props.professorSelecionado ? (

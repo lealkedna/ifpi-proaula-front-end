@@ -1,38 +1,33 @@
 export default class PeriodoLetivo {
-  #id: string
+  #id: number
   #descricao: string
   #dataInicio: string
   #dataTermino: string
 
-  constructor(
-    id: string,
-    descricao: string,
-    dataInicio: string,
-    dataTermino: string
-  ) {
-    this.#id = id
-    this.#descricao = descricao
-    this.#dataInicio = dataInicio
-    this.#dataTermino = dataTermino
+  constructor (id: number, descricao: string, dataInicio: string, datatermino: string) {
+      this.#id = id
+      this.#descricao = descricao
+      this.#dataInicio = dataInicio
+      this.#dataTermino = datatermino
   }
 
   static vazio() {
-    return new PeriodoLetivo('', '', '', '')
+      return new PeriodoLetivo(0, "", "", "")
   }
 
   get id() {
-    return this.#id
+      return this.#id
   }
 
   get descricao() {
-    return this.#descricao
+      return this.#descricao
   }
 
   get dataInicio() {
-    return this.#dataInicio
+      return this.#dataInicio
   }
 
   get dataTermino() {
-    return this.#dataTermino
+      return this.#dataTermino
   }
 }

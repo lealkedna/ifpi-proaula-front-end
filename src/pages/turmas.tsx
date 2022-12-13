@@ -1,41 +1,45 @@
-import React from 'react'
-import TodasTurmas from '../core/TodasTurmas'
-import Layout from '../components/Layout'
-import TabelaTurmas from '../components/TabelasTurmas'
-import FormularioTurmas from '../components/FormulariosTurmas'
 import { useState } from 'react'
+import PeriodoLetivo from '../core/PeriodoLetivo'
+import Turma from '../core/Turma'
+import Layout from '../components/Layout'
 import BotaoAdicionar from '../components/BotaoAdicionar'
+import TabelaTurma from '../components/TabelaTurma'
+import FormularioTurma from '../components/FormularioTurma'
 
 export default function Turmas() {
-  const [turma, setTurma] = useState<TodasTurmas>(TodasTurmas.vazio())
+  const [visivel, setVisivel] = useState<'tabelaTurma' | 'formTurma'>('tabelaTurma')
 
-  const [visivel, setVisivel] = useState<'tabelaTurmas' | 'formTurmas'>(
-    'tabelaTurmas'
-  )
+  const [turma, setTurma] = useState<Turma>(Turma.vazio())
 
-  const TurmasLetivo = [
-    new TodasTurmas('1', 'Mod 1-Lic Química', 'Noite', 'LICQUIM', 'Química'),
-    new TodasTurmas('2', 'Mod 3-Lic Física', 'Noite', 'LICFIS', 'Física'),
-    new TodasTurmas('3', 'Mod 5-Tecn ADS', 'Noite', 'TECNADS', 'ADS'),
+  const periodosLetivos = [
+    new PeriodoLetivo(1, "2021.1", "10/03/2021", "11/07/2021"),
+    new PeriodoLetivo(2, "2022.1", "07/03/2022", "06/07/2022"),
+    new PeriodoLetivo(3, "2022.2", "16/08/2022", "15/12/2022"),
   ]
 
-  function turmaSelecionada(turma: TodasTurmas) {
-    setVisivel('formTurmas')
+  const TurmasLetivo = [
+    new Turma(1, 'Mod 1-Lic Química', 'Noite', 'LICQUIM', periodosLetivos[0]),
+    new Turma(2, 'Mod 3-Lic Física', 'Noite', 'LICFIS', periodosLetivos[1]),
+    new Turma(3, 'Mod 5-Tecn ADS', 'Noite', 'TECNADS', periodosLetivos[2]),
+  ]
+
+  function turmaSelecionada(turma: Turma) {
+    setVisivel('formTurma')
     setTurma(turma)
   }
 
-  function turmaInativada(turma: TodasTurmas) {
-    console.log(`A turma ${turma.nome} foi inativada`)
+  function turmaInativada(turma: Turma) {
+    console.log(`A turma ${turma.descricao} foi inativada`)
   }
-
-  function salvarTurma(turma: TodasTurmas) {
-    console.log(turma)
-    setVisivel('tabelaTurmas')
-  }
-
+  
   function novaTurma() {
-    setTurma(TodasTurmas.vazio())
-    setVisivel('formTurmas')
+    setTurma(Turma.vazio())
+    setVisivel('formTurma')
+  }
+
+  function salvarTurma(turma: Turma) {
+    console.log(turma)
+    setVisivel('tabelaTurma')
   }
 
   return (
@@ -46,23 +50,23 @@ export default function Turmas() {
       `}
     >
       <Layout titulo="HU 05 - Turmas - ADM">
-        {visivel === 'tabelaTurmas' ? (
+        {visivel === 'tabelaTurma' ? (
           <>
             <div className="flex justify-end">
               <BotaoAdicionar className="mb-5" onClick={novaTurma}>
                 Nova Turma
               </BotaoAdicionar>
             </div>
-            <TabelaTurmas
+            <TabelaTurma
               turmas={TurmasLetivo}
               turmaSelecionada={turmaSelecionada}
               turmaInativada={turmaInativada}
             />
           </>
         ) : (
-          <FormularioTurmas
-            turmas={turma}
-            cancelado={() => setVisivel('tabelaTurmas')}
+          <FormularioTurma
+            turma={turma}
+            cancelado={() => setVisivel('tabelaTurma')}
             turmaMudou={salvarTurma}
           />
         )}

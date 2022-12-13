@@ -1,64 +1,62 @@
 import React, { useState } from 'react'
-import Todos_Coordenadores from '../core/Todos_Coordenadores'
-import BotaoCancelar from './BotaoCancelar'
-import BotaoSalvar from './BotaoSalvar'
+import Coordenador from '../core/Coordenador'
 import EntradaCoodenador from './EntradaCoordenador'
+import BotaoSalvar from './BotaoSalvar'
+import BotaoCancelar from './BotaoCancelar'
+import Professor from '../core/Professor'
 
 interface FormularioCoordenadorProps {
-  coordenador: Todos_Coordenadores
+  coordenador: Coordenador
   cancelado?: () => void
-  coordenadorMudou?: (coordenador: Todos_Coordenadores) => void
+  coordenadorMudou?: (coordenador: Coordenador) => void
 }
 
-export default function FormularioCoordenador(
-  props: FormularioCoordenadorProps
-) {
-  const id = props.coordenador?.id ?? null
+export default function FormularioCoordenador(props: FormularioCoordenadorProps) {
+  const id = props.coordenador?.id
 
   const [eixo, setEixo] = useState(props.coordenador?.eixo ?? '')
-  const [modalidade, setModalidade] = useState(
-    props.coordenador?.modalidade ?? ''
-  )
+
+  const [modalidade, setModalidade] = useState(props.coordenador?.modalidade ?? '')
+
   const [professor, setProfessor] = useState(props.coordenador?.professor ?? '')
-  const [aprovarSolicitacao, setAprovarSolicitacao] = useState(
-    props.coordenador?.aprovaSolicitacao ?? ''
-  )
+  
+  const [aprovarSolicitacao, setAprovarSolicitacao] = useState(props.coordenador?.aprovaSolicitacao ?? '')
 
   return (
     <div>
       <EntradaCoodenador
         texto="Eixo"
+        tipo="text"
         valor={eixo}
         valorMudou={setEixo}
-        className="mb-2"
       />
 
       <EntradaCoodenador
         texto="Modalidade"
+        tipo="text"
         valor={modalidade}
         valorMudou={setModalidade}
-        className="mb-2"
       />
 
       <EntradaCoodenador
         texto="Professor"
-        valor={professor}
+        tipo="text"
+        valor={professor.nome}
         valorMudou={setProfessor}
-        className="mb-2"
       />
 
       <EntradaCoodenador
         texto="Aprovar Solicitação"
+        tipo="text"
         valor={aprovarSolicitacao}
         valorMudou={setAprovarSolicitacao}
-        className="mb-2"
       />
       <div className="flex justify-end mt-5">
         <BotaoSalvar
           className="mr-2"
           onClick={() =>
             props.coordenadorMudou?.(
-              new Todos_Coordenadores(
+              new Coordenador(
                 id,
                 eixo,
                 modalidade,
