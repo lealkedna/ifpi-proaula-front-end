@@ -11,14 +11,22 @@ interface FormularioPeriodoLetivoProps {
   cancelado?: () => void
 }
 
-export default function FormularioPeriodoLetivo(props: FormularioPeriodoLetivoProps) {
+export default function FormularioPeriodoLetivo(
+  props: FormularioPeriodoLetivoProps
+) {
   const id = props.periodoLetivo?.id
 
-  const [descricao, setDescricao] = useState(props.periodoLetivo?.descricao ?? '')
+  const [descricao, setDescricao] = useState(
+    props.periodoLetivo?.descricao ?? ''
+  )
 
-  const [dataInicio, setdataInicio] = useState(props.periodoLetivo?.dataInicio ?? '')
-  
-  const [dataTermino, setdataTermino] = useState(props.periodoLetivo?.dataTermino ?? '')
+  const [dataInicio, setdataInicio] = useState(
+    props.periodoLetivo?.dataInicio ?? ''
+  )
+
+  const [dataTermino, setdataTermino] = useState(
+    props.periodoLetivo?.dataTermino ?? ''
+  )
 
   return (
     <div>
@@ -26,7 +34,8 @@ export default function FormularioPeriodoLetivo(props: FormularioPeriodoLetivoPr
         texto="Descrição"
         tipo="text"
         valor={descricao}
-        valorMudou={setDescricao} />
+        valorMudou={setDescricao}
+      />
 
       <Entrada
         texto="Data de Início"
@@ -43,6 +52,7 @@ export default function FormularioPeriodoLetivo(props: FormularioPeriodoLetivoPr
       />
 
       <div className="mt-2">
+        <label className="">Situação</label>
         <CheckBox>
           <span>Desativar</span>
         </CheckBox>

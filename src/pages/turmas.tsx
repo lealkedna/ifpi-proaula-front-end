@@ -7,14 +7,16 @@ import TabelaTurma from '../components/TabelaTurma'
 import FormularioTurma from '../components/FormularioTurma'
 
 export default function Turmas() {
-  const [visivel, setVisivel] = useState<'tabelaTurma' | 'formTurma'>('tabelaTurma')
+  const [visivel, setVisivel] = useState<'tabelaTurma' | 'formTurma'>(
+    'tabelaTurma'
+  )
 
   const [turma, setTurma] = useState<Turma>(Turma.vazio())
 
   const periodosLetivos = [
-    new PeriodoLetivo(1, "2021.1", "10/03/2021", "11/07/2021"),
-    new PeriodoLetivo(2, "2022.1", "07/03/2022", "06/07/2022"),
-    new PeriodoLetivo(3, "2022.2", "16/08/2022", "15/12/2022"),
+    new PeriodoLetivo(1, '2021.1', '10/03/2021', '11/07/2021'),
+    new PeriodoLetivo(2, '2022.1', '07/03/2022', '06/07/2022'),
+    new PeriodoLetivo(3, '2022.2', '16/08/2022', '15/12/2022'),
   ]
 
   const TurmasLetivo = [
@@ -31,7 +33,7 @@ export default function Turmas() {
   function turmaInativada(turma: Turma) {
     console.log(`A turma ${turma.descricao} foi inativada`)
   }
-  
+
   function novaTurma() {
     setTurma(Turma.vazio())
     setVisivel('formTurma')
@@ -49,7 +51,7 @@ export default function Turmas() {
         bg-gray-600
       `}
     >
-      <Layout titulo="HU 05 - Turmas - ADM">
+      <Layout titulo="Turmas - Administrador">
         {visivel === 'tabelaTurma' ? (
           <>
             <div className="flex justify-end">

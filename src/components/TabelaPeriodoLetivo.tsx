@@ -2,6 +2,7 @@ import PeriodoLetivo from '../core/PeriodoLetivo'
 import BotaoEditar from './BotaoEditar'
 import BotaoInativar from './BotaoInativar'
 import { iconeEditar, IconeInativar } from './Icones'
+import Dropdown from '../components/Dropdown'
 
 interface TabelaPeriodoLetivoProps {
   periodoLetivo: PeriodoLetivo[]
@@ -19,6 +20,7 @@ export default function TabelaPeriodoLetivo(props: TabelaPeriodoLetivoProps) {
         <th className="p-3">Descrição</th>
         <th className="p-3">Data de Início</th>
         <th className="p-3">Data de Término</th>
+        <th className="p-3">Situação</th>
         {exibirAcoes ? <th className="p-3">Ações</th> : false}
       </tr>
     )
@@ -34,6 +36,9 @@ export default function TabelaPeriodoLetivo(props: TabelaPeriodoLetivoProps) {
           <td className="p-3">{periodoLetivo.descricao}</td>
           <td className="p-3">{periodoLetivo.dataInicio}</td>
           <td className="p-3">{periodoLetivo.dataTermino}</td>
+          <td className="p-3">
+            <Dropdown />
+          </td>
           {exibirAcoes ? renderizarAcoes(periodoLetivo) : false}
         </tr>
       )
