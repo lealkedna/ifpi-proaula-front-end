@@ -6,9 +6,7 @@ import TabelaProfessor from '../components/TabelaProfessor'
 import FormularioProfessor from '../components/FormularioProfessor'
 
 export default function Professores() {
-  const [visivel, setVisivel] = useState<'tabelaProfessor' | 'formProfessor'>(
-    'tabelaProfessor'
-  )
+  const [visivel, setVisivel] = useState<'tabelaProfessor' | 'formProfessor'>('tabelaProfessor')
 
   const [professor, setProfessor] = useState<Professor>(Professor.vazio())
 

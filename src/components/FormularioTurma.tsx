@@ -25,7 +25,7 @@ export default function FormularioTurma(props: FormularioTurmaProps) {
   return (
     <div>
       <EntradaTurma
-        texto="descricao"
+        texto="Descrição"
         tipo="text"
         valor={descricao}
         valorMudou={setDescricao}

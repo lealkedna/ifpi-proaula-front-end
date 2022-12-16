@@ -7,9 +7,7 @@ import TabelaTurma from '../components/TabelaTurma'
 import FormularioTurma from '../components/FormularioTurma'
 
 export default function Turmas() {
-  const [visivel, setVisivel] = useState<'tabelaTurma' | 'formTurma'>(
-    'tabelaTurma'
-  )
+  const [visivel, setVisivel] = useState<'tabelaTurma' | 'formTurma'>('tabelaTurma')
 
   const [turma, setTurma] = useState<Turma>(Turma.vazio())
 
@@ -19,7 +17,7 @@ export default function Turmas() {
     new PeriodoLetivo(3, '2022.2', '16/08/2022', '15/12/2022'),
   ]
 
-  const TurmasLetivo = [
+  const turmas = [
     new Turma(1, 'Mod 1-Lic Química', 'Noite', 'LICQUIM', periodosLetivos[0]),
     new Turma(2, 'Mod 3-Lic Física', 'Noite', 'LICFIS', periodosLetivos[1]),
     new Turma(3, 'Mod 5-Tecn ADS', 'Noite', 'TECNADS', periodosLetivos[2]),
@@ -60,7 +58,7 @@ export default function Turmas() {
               </BotaoAdicionar>
             </div>
             <TabelaTurma
-              turmas={TurmasLetivo}
+              turmas={turmas}
               turmaSelecionada={turmaSelecionada}
               turmaInativada={turmaInativada}
             />

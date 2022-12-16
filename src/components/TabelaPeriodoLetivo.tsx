@@ -1,11 +1,13 @@
 import PeriodoLetivo from '../core/PeriodoLetivo'
 import BotaoEditar from './BotaoEditar'
 import BotaoInativar from './BotaoInativar'
-import { iconeEditar, IconeInativar } from './Icones'
+import { iconeCalendario, iconeEditar, IconeInativar } from './Icones'
 import Dropdown from '../components/Dropdown'
+import BotaoCalendario from './BotaoCalendario'
 
 interface TabelaPeriodoLetivoProps {
-  periodoLetivo: PeriodoLetivo[]
+  periodosLetivos: PeriodoLetivo[]
+  calendarioSelecionado?: () => void
   periodoLetivoSelecionado?: (periodoLetivo: PeriodoLetivo) => void
   periodoLetivoInativado?: (periodoLetivo: PeriodoLetivo) => void
 }
@@ -27,7 +29,7 @@ export default function TabelaPeriodoLetivo(props: TabelaPeriodoLetivoProps) {
   }
 
   function renderizarDados() {
-    return props.periodoLetivo?.map((periodoLetivo, i) => {
+    return props.periodosLetivos?.map((periodoLetivo, i) => {
       return (
         <tr
           key={i}
@@ -48,6 +50,12 @@ export default function TabelaPeriodoLetivo(props: TabelaPeriodoLetivoProps) {
   function renderizarAcoes(periodoLetivo: PeriodoLetivo) {
     return (
       <td className="p-3">
+        {props.calendarioSelecionado ? (
+          <BotaoCalendario onClick={props.calendarioSelecionado}>
+            {iconeCalendario}
+          </BotaoCalendario>
+        ) : false}
+
         {props.periodoLetivoSelecionado ? (
           <BotaoEditar
             onClick={() => props.periodoLetivoSelecionado?.(periodoLetivo)}

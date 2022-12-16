@@ -7,9 +7,7 @@ import TabelaCoordenador from '../components/TabelaCoordenador'
 import FormularioCoordenador from '../components/FormularioCoordenador'
 
 export default function Coordenadores() {
-  const [visivel, setVisivel] = useState<
-    'tabelaCoordenador' | 'formCoordenador'
-  >('tabelaCoordenador')
+  const [visivel, setVisivel] = useState<'tabelaCoordenador' | 'formCoordenador'>('tabelaCoordenador')
 
   const [coordenador, setCoordenador] = useState<Coordenador>(
     Coordenador.vazio()
@@ -86,7 +84,7 @@ export default function Coordenadores() {
               </BotaoAdicionar>
             </div>
             <TabelaCoordenador
-              coordenador={coordenadores}
+              coordenadores={coordenadores}
               coordenadorSelecionado={coordenadorSelecionado}
               coordenadorInativado={coordenadorInativado}
             />

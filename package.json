@@ -12,11 +12,13 @@
   "dependencies": {
     "next": "12.3.1",
     "react": "18.2.0",
+    "react-calendar": "^4.0.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@types/node": "18.7.23",
     "@types/react": "18.0.21",
+    "@types/react-calendar": "^3.9.0",
     "@types/react-dom": "18.0.6",
     "@typescript-eslint/eslint-plugin": "^5.38.1",
     "autoprefixer": "^10.4.13",

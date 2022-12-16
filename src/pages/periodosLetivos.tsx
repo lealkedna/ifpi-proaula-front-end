@@ -4,11 +4,10 @@ import Layout from '../components/Layout'
 import BotaoAdicionar from '../components/BotaoAdicionar'
 import TabelaPeriodoLetivo from '../components/TabelaPeriodoLetivo'
 import FormularioPeriodoLetivo from '../components/FormularioPeriodoLetivo'
+import Calendario from '../components/Calendario'
 
 export default function PeriodosLetivos() {
-  const [visivel, setVisivel] = useState<
-    'tabelaPeriodoLetivo' | 'formPeriodoLetivo'
-  >('tabelaPeriodoLetivo')
+  const [visivel, setVisivel] = useState<'calendarioPeriodoLetivo' | 'tabelaPeriodoLetivo' | 'formPeriodoLetivo'>('tabelaPeriodoLetivo')
 
   const [periodoLetivo, setperiodoLetivo] = useState<PeriodoLetivo>(
     PeriodoLetivo.vazio()
@@ -29,6 +28,10 @@ export default function PeriodosLetivos() {
     console.log(`O periodo Letivo ${periodoLetivo.descricao} foi inativado`)
   }
 
+  function calendarioSelecionado() {
+    setVisivel("calendarioPeriodoLetivo")
+  }
+
   function novoPeriodoLetivo() {
     setperiodoLetivo(PeriodoLetivo.vazio())
     setVisivel('formPeriodoLetivo')
@@ -46,27 +49,21 @@ export default function PeriodosLetivos() {
       bg-gray-600
     `}
     >
-      <Layout titulo="Período Letivo - Administrador">
-        {visivel === 'tabelaPeriodoLetivo' ? (
-          <>
-            <div className="flex justify-end">
-              <BotaoAdicionar className="mb-5" onClick={novoPeriodoLetivo}>
-                Novo Período Letivo
-              </BotaoAdicionar>
-            </div>
-            <TabelaPeriodoLetivo
-              periodoLetivo={periodosLetivos}
-              periodoLetivoSelecionado={periodoLetivoSelecionado}
-              periodoLetivoInativado={periodoLetivoInativado}
-            />
-          </>
-        ) : (
-          <FormularioPeriodoLetivo
-            periodoLetivo={periodoLetivo}
-            periodoLetivoMudou={salvarPeriodoLetivo}
-            cancelado={() => setVisivel('tabelaPeriodoLetivo')}
-          />
-        )}
+      <Layout titulo="Período Letivo - Adminitrador">
+        {
+          visivel === "tabelaPeriodoLetivo" ? (
+            <>
+              <div className="flex  justify-end mt-3 mb-3">
+                <BotaoAdicionar onClick={novoPeriodoLetivo}>Novo Período Letivo</BotaoAdicionar>
+              </div>
+              <TabelaPeriodoLetivo periodosLetivos={periodosLetivos} periodoLetivoSelecionado={periodoLetivoSelecionado} periodoLetivoInativado={periodoLetivoInativado} calendarioSelecionado={calendarioSelecionado}></TabelaPeriodoLetivo>
+            </>
+          ) :
+          visivel === "formPeriodoLetivo" ?  (<FormularioPeriodoLetivo periodoLetivo={periodoLetivo} periodoLetivoMudou={salvarPeriodoLetivo} cancelado={() => setVisivel("tabelaPeriodoLetivo")}></FormularioPeriodoLetivo>) :
+          <div className="flex justify-center items-center">
+            <Calendario></Calendario>
+          </div>
+        }
       </Layout>
     </div>
   )
