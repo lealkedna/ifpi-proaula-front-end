@@ -7,7 +7,7 @@ interface BotaoCalendarioProps {
 
 export default function BotaoCalendario(props: BotaoCalendarioProps) {
     return (
-        <button className="p-2 mr-1 text-blue-700 rounded-full hover:bg-white" onClick={props.onClick}>
+        <button className="p-2 mr-1 text-gray-700 rounded-full hover:bg-white" onClick={props.onClick}>
             {props.children}
         </button>
     )

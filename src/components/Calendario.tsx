@@ -1,12 +1,7 @@
 import { useState } from "react";
 import Calendar from "react-calendar";
 
-
-interface CalendarioProps {
-
-}
-
-export default function Calendario(props: CalendarioProps) {
+export default function Calendario() {
     const [dataAtual, setDataAtual] = useState(new Date())
 
     return (
@@ -15,6 +10,7 @@ export default function Calendario(props: CalendarioProps) {
                 calendarType="US"
                 value={dataAtual}
                 onChange={setDataAtual}
+                showNeighboringMonth={false}
             />
         </div>
     )

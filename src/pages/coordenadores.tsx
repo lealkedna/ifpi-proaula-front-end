@@ -79,7 +79,7 @@ export default function Coordenadores() {
         {visivel === 'tabelaCoordenador' ? (
           <>
             <div className="flex justify-end">
-              <BotaoAdicionar className="mb-5" onClick={novoCoordenador}>
+              <BotaoAdicionar onClick={novoCoordenador}>
                 Novo Coordenador
               </BotaoAdicionar>
             </div>

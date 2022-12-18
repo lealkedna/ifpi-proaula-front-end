@@ -53,7 +53,7 @@ export default function Turmas() {
         {visivel === 'tabelaTurma' ? (
           <>
             <div className="flex justify-end">
-              <BotaoAdicionar className="mb-5" onClick={novaTurma}>
+              <BotaoAdicionar onClick={novaTurma}>
                 Nova Turma
               </BotaoAdicionar>
             </div>

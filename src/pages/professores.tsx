@@ -58,7 +58,7 @@ export default function Professores() {
         {visivel === 'tabelaProfessor' ? (
           <>
             <div className="flex justify-end">
-              <BotaoAdicionar className="mb-5" onClick={novoProfessor}>
+              <BotaoAdicionar onClick={novoProfessor}>
                 Novo Professor
               </BotaoAdicionar>
             </div>

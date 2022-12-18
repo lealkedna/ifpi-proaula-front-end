@@ -8,7 +8,7 @@ interface BotaoInativarProps {
 export default function BotaoInativar(props: BotaoInativarProps) {
   return (
     <button
-      className="ml-1 p-2 rounded-full hover:bg-white text-red-600"
+      className="ml-1 p-2 rounded-full hover:bg-white text-red-700"
       onClick={props.onClick}
     >
       {props.children}

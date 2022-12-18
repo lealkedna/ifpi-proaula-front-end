@@ -5,6 +5,7 @@ import BotaoAdicionar from '../components/BotaoAdicionar'
 import TabelaPeriodoLetivo from '../components/TabelaPeriodoLetivo'
 import FormularioPeriodoLetivo from '../components/FormularioPeriodoLetivo'
 import Calendario from '../components/Calendario'
+import BotaoVoltar from '../components/BotaoVoltar'
 
 export default function PeriodosLetivos() {
   const [visivel, setVisivel] = useState<
@@ -51,10 +52,10 @@ export default function PeriodosLetivos() {
       bg-gray-600
     `}
     >
-      <Layout titulo="Período Letivo - Adminitrador">
+      <Layout titulo="Período Letivo - Administrador">
         {visivel === 'tabelaPeriodoLetivo' ? (
           <>
-            <div className="flex  justify-end mt-3 mb-3">
+            <div className="flex justify-end">
               <BotaoAdicionar onClick={novoPeriodoLetivo}>
                 Novo Período Letivo
               </BotaoAdicionar>
@@ -73,9 +74,16 @@ export default function PeriodosLetivos() {
             cancelado={() => setVisivel('tabelaPeriodoLetivo')}
           ></FormularioPeriodoLetivo>
         ) : (
-          <div className="flex justify-center items-center">
-            <Calendario></Calendario>
-          </div>
+          <>
+            <div className="flex justify-center items-center">
+              <Calendario></Calendario>
+            </div>
+            <div className="flex justify-center mt-8">
+              <BotaoVoltar onClick={() => setVisivel("tabelaPeriodoLetivo")}>
+                Voltar
+              </BotaoVoltar>
+            </div>
+          </>
         )}
       </Layout>
     </div>
