@@ -5,6 +5,7 @@ import BotaoCancelar from './BotaoCancelar'
 import BotaoSalvar from './BotaoSalvar'
 import EntradaTurma from './EntradaTurma'
 
+
 interface FormularioTurmaProps {
   turma: Turma
   turmaMudou?: (turma: Turma) => void
@@ -25,7 +26,7 @@ export default function FormularioTurma(props: FormularioTurmaProps) {
   return (
     <div>
       <EntradaTurma
-        texto="descricao"
+        texto="Descrição"
         tipo="text"
         valor={descricao}
         valorMudou={setDescricao}

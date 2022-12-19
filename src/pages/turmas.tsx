@@ -30,6 +30,8 @@ export default function Turmas() {
 
   function turmaInativada(turma: Turma) {
     console.log(`A turma ${turma.descricao} foi inativada`)
+    alert(`A turma ${turma.descricao} foi inativada`)
+   
   }
   
   function novaTurma() {
@@ -39,7 +41,24 @@ export default function Turmas() {
 
   function salvarTurma(turma: Turma) {
     console.log(turma)
-    setVisivel('tabelaTurma')
+    
+    if(turma.descricao == ''){
+      alert(`preencha a descrição corretamente`)
+   }
+    else if (turma.turno == ''){
+      alert(`preencha o turno corretamente`)
+    }
+    else if(turma.curso == ''){
+      alert(`preencha o curso corretamente`)
+    }
+    else if(turma.periodoLetivo.dataInicio == '' || turma.periodoLetivo.dataTermino == ''){
+      alert(`preencha o periodo letivo corretamente`)
+
+    }
+    else{
+      setVisivel('tabelaTurma')
+      console.log(turma.periodoLetivo)
+    }
   }
 
   return (

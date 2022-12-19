@@ -32,6 +32,7 @@ export default function Coordenadores() {
 
   function coordenadorInativado(coordenador: Coordenador) {
     console.log(`O coordenador ${coordenador.professor.nome} foi inativado`)
+    alert(`O coordenador ${coordenador.professor.nome} foi inativado`)
   }
   
   function novoCoordenador() {
@@ -41,7 +42,23 @@ export default function Coordenadores() {
 
   function salvarCoordenador(coordenador: Coordenador) {
     console.log(coordenador)
-    setVisivel('tabelaCoordenador')
+   
+    if(coordenador.eixo == ''){
+      alert(`preencha o eixo corretamente`)
+    }
+    else if(coordenador.modalidade == ''){
+      alert(`preencha a modalidade corretamente`)
+    }
+    else if(coordenador.professor.nome == ''){
+      alert(`preencha professor corretamente`)
+    }
+    else if(coordenador.aprovaSolicitacao == ''){
+      alert(`preencha o aprova solicitação corretamente`)
+    }
+    else{
+      setVisivel('tabelaCoordenador')
+      console.log(coordenador.professor)
+    }
   }
 
   return (

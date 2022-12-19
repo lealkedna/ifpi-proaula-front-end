@@ -23,6 +23,7 @@ export default function PeriodosLetivos() {
 
   function periodoLetivoInativado(periodoLetivo: PeriodoLetivo) {
     console.log(`O periodo Letivo ${periodoLetivo.descricao} foi inativado`)
+    alert(`O periodo Letivo ${periodoLetivo.descricao} foi inativado`)
   }
 
   function novoPeriodoLetivo() {
@@ -32,7 +33,19 @@ export default function PeriodosLetivos() {
 
   function salvarPeriodoLetivo(periodoLetivo: PeriodoLetivo) {
     console.log(periodoLetivo)
-    setVisivel('tabelaPeriodoLetivo')
+    if(periodoLetivo.descricao == ''){
+      alert(`preencha a descrição corretamente`)
+    }
+    else if(periodoLetivo.dataInicio == ''){
+      alert(`preencha a data inicio corretamente`)
+    }
+    else if(periodoLetivo.dataTermino == ''){
+      alert(`preencha a data termino corretamente`)
+    }
+    else{
+      setVisivel('tabelaPeriodoLetivo')
+
+    }
   }
 
   return (

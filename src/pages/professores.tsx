@@ -23,6 +23,7 @@ export default function Professores() {
 
   function professorInativado(professor: Professor) {
     console.log(`O professor ${professor.nome} foi inativado`)
+    alert(`O professor ${professor.nome} foi inativado`)
   }
 
   function novoProfessor() {
@@ -32,7 +33,26 @@ export default function Professores() {
 
   function salvarProfessor(professor: Professor) {
     console.log(professor)
-    setVisivel('tabelaProfessor')
+    
+    if(professor.matricula == ''){
+      alert(`preencha a matricula corretamente `)
+    }
+    else if(professor.nome == ''){
+      alert(`preencha  o nomecorretamente `)
+    }
+    else if(professor.email == ''){
+      alert(`preencha o email corretamente `)
+    }
+    else if(professor.qualificacao == ''){
+      alert(`preencha a qualificação corretamente `)
+    }
+    else if(professor.eixo == ''){
+      alert(`preencha o eixo corretamente `)
+    }
+    else{
+      setVisivel('tabelaProfessor')
+    }
+    
   }
 
   return (
