@@ -51,7 +51,7 @@ export default function Turmas() {
     else if(turma.curso == ''){
       alert(`preencha o curso corretamente`)
     }
-    else if(turma.periodoLetivo.dataInicio == '' || turma.periodoLetivo.dataTermino == ''){
+    else if(turma.periodoLetivo.descricao == ''){
       alert(`preencha o periodo letivo corretamente`)
 
     }

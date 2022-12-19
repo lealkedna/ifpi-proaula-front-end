@@ -6,7 +6,6 @@ export default class Turma {
   #turno: string
   #curso: string
   #periodoLetivo: PeriodoLetivo
-  static PeriodoLetivo: null
 
   constructor(id: number, descricao: string, turno: string, curso: string, periodoLetivo: PeriodoLetivo) {
     this.#id = id
