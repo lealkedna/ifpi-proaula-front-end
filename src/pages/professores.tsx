@@ -7,12 +7,24 @@ import FormularioProfessor from '../components/FormularioProfessor'
 
 export default function Professores() {
   const [visivel, setVisivel] = useState<'tabelaProfessor' | 'formProfessor'>('tabelaProfessor')
-  
+
   const [professor, setProfessor] = useState<Professor>(Professor.vazio())
 
   const professores = [
-    new Professor('12345ER', 'Jesiel', 'Jesiel@ifpi.edu.br', 'Professor', 'ADS'),
-    new Professor('12345UY', 'Aislan', 'Aislan@ifpi.edu.br', 'Professor', 'ADS'),
+    new Professor(
+      '12345ER',
+      'Jesiel',
+      'Jesiel@ifpi.edu.br',
+      'Professor',
+      'ADS'
+    ),
+    new Professor(
+      '12345UY',
+      'Aislan',
+      'Aislan@ifpi.edu.br',
+      'Professor',
+      'ADS'
+    ),
     new Professor('12345OP', 'Jader', 'Jader@ifpi.edu.br', 'Professor', 'ADS'),
   ]
 
@@ -62,11 +74,11 @@ export default function Professores() {
          bg-gray-600
       `}
     >
-      <Layout titulo="HU 06 - Professores - ADM">
+      <Layout titulo="Professores - Administrador">
         {visivel === 'tabelaProfessor' ? (
           <>
             <div className="flex justify-end">
-              <BotaoAdicionar className="mb-5" onClick={novoProfessor}>
+              <BotaoAdicionar onClick={novoProfessor}>
                 Novo Professor
               </BotaoAdicionar>
             </div>

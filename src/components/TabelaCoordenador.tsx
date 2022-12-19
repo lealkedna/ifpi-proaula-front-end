@@ -5,7 +5,7 @@ import BotaoInativar from './BotaoInativar'
 import { iconeEditar, IconeInativar } from './Icones'
 
 interface TabelaCoordenadorProps {
-  coordenador: Coordenador[]
+  coordenadores: Coordenador[]
   coordenadorSelecionado?: (coordenador: Coordenador) => void
   coordenadorInativado?: (coordenador: Coordenador) => void
 }
@@ -26,7 +26,7 @@ export default function TabelaCoordenador(props: TabelaCoordenadorProps) {
   }
 
   function renderizarDados() {
-    return props.coordenador?.map((coordenador, i) => {
+    return props.coordenadores?.map((coordenador, i) => {
       return (
         <tr
           key={coordenador.id}

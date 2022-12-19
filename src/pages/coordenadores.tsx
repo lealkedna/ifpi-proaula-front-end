@@ -14,14 +14,38 @@ export default function Coordenadores() {
   )
 
   const professores = [
-    new Professor('12345ER', 'Jesiel', 'Jesiel@ifpi.edu.br', 'Professor', 'ADS'),
-    new Professor( '12345UY', 'Aislan', 'Aislan@ifpi.edu.br', 'Professor', 'ADS'),
-    new Professor('12345OP', 'Jader','Jader@ifpi.edu.br', 'Professor', 'ADS'),
+    new Professor(
+      '12345ER',
+      'Jesiel',
+      'Jesiel@ifpi.edu.br',
+      'Professor',
+      'ADS'
+    ),
+    new Professor(
+      '12345UY',
+      'Aislan',
+      'Aislan@ifpi.edu.br',
+      'Professor',
+      'ADS'
+    ),
+    new Professor('12345OP', 'Jader', 'Jader@ifpi.edu.br', 'Professor', 'ADS'),
   ]
 
   const coordenadores = [
-    new Coordenador(1, 'Base Comum', 'Ensino Médio', professores[0], 'Aprovar Curso'),
-    new Coordenador(2, 'Gestão', 'Ensino Médio', professores[1], 'Aprovar Curso'),
+    new Coordenador(
+      1,
+      'Base Comum',
+      'Ensino Médio',
+      professores[0],
+      'Aprovar Curso'
+    ),
+    new Coordenador(
+      2,
+      'Gestão',
+      'Ensino Médio',
+      professores[1],
+      'Aprovar Curso'
+    ),
     new Coordenador(3, 'ADS', 'Superior', professores[2], 'Aprovar Curso'),
   ]
 
@@ -34,7 +58,7 @@ export default function Coordenadores() {
     console.log(`O coordenador ${coordenador.professor.nome} foi inativado`)
     alert(`O coordenador ${coordenador.professor.nome} foi inativado`)
   }
-  
+
   function novoCoordenador() {
     setCoordenador(Coordenador.vazio())
     setVisivel('formCoordenador')
@@ -68,16 +92,16 @@ export default function Coordenadores() {
                 bg-gray-600
             `}
     >
-      <Layout titulo="HU 07 - Coordenadores - ADM">
+      <Layout titulo="Coordenadores - Administrador">
         {visivel === 'tabelaCoordenador' ? (
           <>
             <div className="flex justify-end">
-              <BotaoAdicionar className="mb-5" onClick={novoCoordenador}>
+              <BotaoAdicionar onClick={novoCoordenador}>
                 Novo Coordenador
               </BotaoAdicionar>
             </div>
             <TabelaCoordenador
-              coordenador={coordenadores}
+              coordenadores={coordenadores}
               coordenadorSelecionado={coordenadorSelecionado}
               coordenadorInativado={coordenadorInativado}
             />
