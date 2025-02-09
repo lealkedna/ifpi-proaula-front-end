@@ -11,9 +11,12 @@ interface FormularioProfessorProps {
 }
 
 export default function FormularioProfessor(props: FormularioProfessorProps) {
-  const matricula = props.professor?.matricula
+  // const matricula = props.professor?.matricula
 
-  const nome = props.professor?.nome
+  // const nome = props.professor?.nome
+
+  const [matricula, setMatricula] = useState(props.professor?.matricula ?? '')
+  const [nome, setNome] = useState(props.professor?.nome ?? '')
 
   const [email, setEmail] = useState(props.professor?.email ?? '')
 
@@ -27,12 +30,14 @@ export default function FormularioProfessor(props: FormularioProfessorProps) {
         texto="Matrícula"
         tipo="text"
         valor={matricula}
+        valorMudou={setMatricula}
       />
 
       <EntradaProfessor
         texto="Nome"
         tipo="text"
         valor={nome}
+        valorMudou={setNome}
       />
 
       <EntradaProfessor
